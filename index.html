@@ -26,11 +26,13 @@
     /* Style the entire body of the webpage */
     body {
       font-family: 'Inter', sans-serif;   /* Set the font to Inter, with sans-serif as backup */
-      background-color: #ffffff;          /* Set background color to white */
+      background: linear-gradient(135deg, #fafafa 0%, #ffffff 100%); /* Subtle gradient background */
       color: #1a1a1a;                     /* Set text color to very dark gray */
       margin: 0;                          /* Remove default spacing around the body */
       padding: 0;                         /* Remove default internal spacing */
       line-height: 1.6;                   /* Reduced line height for more compact text */
+      scroll-behavior: smooth;            /* Smooth scrolling between sections */
+      overflow-x: hidden;                 /* Hide horizontal scroll */
     }
 
 
@@ -44,16 +46,25 @@
       display: flex;                      /* Use flexbox layout for flexible positioning */
       justify-content: space-between;     /* Spread items evenly across the header */
       align-items: center;                /* Center items vertically */
-      padding: 20px 30px;                 /* Reduced padding */
-      border-bottom: 1px solid #e5e5e5;   /* Light gray border */
-      font-size: 14px;                    /* Reduced font size */
+      padding: 25px 40px;                 /* Increased padding */
+      border-bottom: 2px solid #6a4c93;   /* Purple border for presentation */
+      font-size: 16px;                    /* Larger font size */
       color: #1a1a1a;                     /* Dark text color */
-      background: #ffffff;                /* White background */
-      box-shadow: 0 2px 8px rgba(0,0,0,0.04); /* Subtle shadow */
-      position: sticky;                   /* Make header stick to top */
+      background: linear-gradient(135deg, #f8f7ff 0%, #ffffff 100%); /* Gradient background */
+      box-shadow: 0 4px 20px rgba(106, 76, 147, 0.1); /* Enhanced shadow */
+      position: fixed;                    /* Fixed position */
       top: 0;                             /* Stick to top of viewport */
+      left: 0;                            /* Full width */
+      right: 0;                           /* Full width */
       z-index: 100;                       /* Ensure header stays above content */
       font-family: 'Inter', sans-serif;   /* Same font as website content */
+      font-weight: 600;                   /* Bold font for presentation */
+      opacity: 1;                         /* Start visible */
+      transition: opacity 0.5s ease;      /* Smooth fade transition */
+    }
+
+    header.hidden {
+      opacity: 0;                         /* Hide header */
     }
 
     /* Style the left section of the header (institution name) */
@@ -87,8 +98,9 @@
 
     /* Style the main content area */
     main {
-      margin: 50px 30px;                  /* Reduced margins */
+      margin: 0;                          /* No margins for full-screen sections */
       padding: 0;                         /* No additional padding */
+      width: 100%;                        /* Full width */
     }
 
     /* ============================================================================
@@ -104,31 +116,31 @@
 
     /* Style the main project title (regular sections) */
     .project-title {
-      font-size: 20px;                    /* Reduced font size */
-      font-weight: 600;                   /* Set font weight to semi-bold */
-      margin-bottom: 18px;                /* Reduced margin */
-      margin-top: 35px;                   /* Reduced margin */
+      font-size: 24px;                    /* Larger font size for presentation */
+      font-weight: 700;                   /* Set font weight to bold */
+      margin-bottom: 25px;                /* Increased margin */
+      margin-top: 40px;                   /* Back to original margin */
       color: #1a1a1a;                     /* Set text color to dark gray */
-      line-height: 1.3;                   /* Tighter line height for titles */
-      letter-spacing: -0.01em;            /* Slightly tighter letter spacing */
-      border-left: 3px solid #6a4c93;     /* Smaller purple accent line */
-      padding-left: 15px;                 /* Reduced space for accent line */
+      line-height: 1.2;                   /* Tighter line height for titles */
+      letter-spacing: -0.02em;            /* Slightly tighter letter spacing */
+      border-left: 4px solid #6a4c93;     /* Purple accent line */
+      padding-left: 20px;                 /* Increased space for accent line */
       scroll-margin-top: 80px;            /* Reduced scroll margin */
+      text-transform: uppercase;           /* Uppercase for presentation */
+      letter-spacing: 1px;                /* Increased letter spacing for impact */
     }
 
     /* Style for the main title (Research Foundations + Project Outline) */
     .project-title-main {
-      font-size: 24px;                    /* Reduced font size */
-      font-weight: 600;                   /* Set font weight to semi-bold */
-      margin-bottom: 30px;                /* Reduced margin */
+      font-size: 56px;                    /* Larger font size for impact */
+      font-weight: 900;                   /* Extra bold for impact */
+      margin-bottom: 30px;                /* More space for subtitle */
       margin-top: 0;                      /* No top margin since it's the first element */
-      color: #1a1a1a;                     /* Set text color to dark gray */
-      line-height: 1.2;                   /* Tighter line height for titles */
-      letter-spacing: -0.02em;            /* Slightly tighter letter spacing */
-      white-space: nowrap;                /* Prevent line breaks */
-      overflow: hidden;                   /* Hide overflow if needed */
-      text-overflow: ellipsis;            /* Add ellipsis if text is too long */
+      line-height: 1.1;                   /* Tighter line height for titles */
       text-align: center;                 /* Center the title */
+      letter-spacing: 2px;                /* Letter spacing for impact */
+      color: #6a4c93;                     /* Purple color */
+      z-index: 10;                        /* Above other content */
     }
 
     /* Style for Network Graph Visualization title (subsection) */
@@ -143,9 +155,12 @@
 
     /* Style the project subtitle */
     .project-subtitle {
-      font-size: 16px;                    /* Set font size to 16 pixels */
-      color: #999;                        /* Set text color to light gray */
-      margin-bottom: 24px;                /* Add 24 pixels of space below this element */
+      font-size: 28px;                    /* Larger font size for subtitle */
+      color: #8b5cf6;                     /* Lighter purple color */
+      margin-bottom: 0;                   /* No bottom margin */
+      text-align: center;                 /* Center the subtitle */
+      font-weight: 500;                   /* Medium font weight */
+      letter-spacing: 1px;                /* Letter spacing for readability */
     }
 
     /* ============================================================================
@@ -155,11 +170,135 @@
     /* Style for section content (Lorem ipsum text) */
     .section-content {
       margin-left: 0;                     /* No left margin since titles have padding */
-      margin-bottom: 25px;                /* Reduced margin */
-      font-size: 14px;                    /* Reduced font size */
-      line-height: 1.6;                   /* Reduced line height */
-      color: #2a2a2a;                     /* Set text color to dark gray */
-      font-weight: 400;                   /* Normal font weight for readability */
+      margin-bottom: 0;                   /* No margin for full-screen */
+      font-size: 24px;                    /* Much larger font size for presentation */
+      line-height: 1.6;                   /* Slightly tighter line height for larger text */
+      color: #1a1a1a;                     /* Darker text color for better contrast */
+      font-weight: 500;                   /* Medium font weight for better readability */
+      padding: 60px 40px;                 /* Add padding for better spacing */
+      background: #ffffff;                 /* Solid white background */
+      border-radius: 0;                   /* No rounded corners for full-screen */
+      box-shadow: none;                   /* No shadow for full-screen */
+      border-left: none;                  /* No border for full-screen */
+      max-width: none;                    /* No width limit for full-screen */
+      margin-left: 0;                     /* No auto margin for full-screen */
+      margin-right: 0;                    /* No auto margin for full-screen */
+      width: 100%;                        /* Full width */
+      height: 100vh;                      /* Full viewport height */
+      display: flex;                      /* Use flexbox for centering */
+      flex-direction: column;             /* Stack content vertically */
+      justify-content: center;            /* Center vertically */
+      align-items: center;                /* Center horizontally */
+      box-sizing: border-box;            /* Include padding in height calculation */
+      position: relative;                 /* For absolute positioning of children */
+      text-align: left;                   /* Left align text for better readability */
+    }
+
+    /* Scrollable content for long sections */
+    .scrollable-content {
+      overflow-y: auto;
+      max-height: 80vh;
+      width: 100%;
+      padding-right: 12px;
+    }
+
+    /* Full-screen section styling */
+    .fullscreen-section {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 60px 40px;
+      box-sizing: border-box;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transform: translateY(100%);
+      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 1;
+      background: #ffffff;                /* Solid white background */
+    }
+
+    .fullscreen-section.active {
+      opacity: 1;
+      transform: translateY(0);
+      z-index: 2;
+    }
+
+    .fullscreen-section.prev {
+      transform: translateY(-100%);
+      z-index: 1;
+    }
+
+    /* Scroll indicator on the right side */
+    .scroll-indicator {
+      position: fixed;
+      right: 30px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      z-index: 1000;
+    }
+
+    .scroll-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgba(106, 76, 147, 0.3);
+      border: 2px solid rgba(106, 76, 147, 0.5);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .scroll-dot.active {
+      background: #6a4c93;
+      border-color: #8b5cf6;
+      transform: scale(1.2);
+      box-shadow: 0 0 10px rgba(106, 76, 147, 0.4);
+    }
+
+    .scroll-dot:hover {
+      background: rgba(106, 76, 147, 0.6);
+      transform: scale(1.1);
+    }
+
+    /* Section counter - only show on first section */
+    .section-counter {
+      position: fixed;
+      top: 30px;
+      right: 30px;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-weight: 600;
+      color: #6a4c93;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .section-counter.visible {
+      opacity: 1;
+    }
+
+    /* Hide scroll */
+    body {
+      overflow: hidden;
+    }
+
+
+
+    /* Container for full-screen sections */
+    .sections-container {
+      height: 100vh;
+      overflow: hidden;                   /* Hide scroll */
+      position: relative;                 /* For absolute positioning */
     }
 
     /* Style for experiment content */
@@ -284,14 +423,14 @@
     /* Base circle styling */
     .circle {
       position: absolute;
-      width: 220px;
-      height: 220px;
+      width: 280px;
+      height: 280px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 20px;
+      padding: 25px;
       box-sizing: border-box;
       transition: all 0.3s ease;
       cursor: pointer;
@@ -438,13 +577,13 @@
     /* Timeline content */
     .timeline-content {
       background: #ffffff;
-      border-radius: 10px;
-      padding: 12px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      border-radius: 12px;
+      padding: 15px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.12);
       text-align: center;
-      max-width: 150px;
+      max-width: 180px;
       transition: all 0.3s ease;
-      border: 1px solid #f0f0f0;
+      border: 2px solid #f0f0f0;
     }
 
     .timeline-item:hover .timeline-content {
@@ -530,10 +669,10 @@
     .argument-box {
       flex: 1;
       background: #ffffff;
-      border-radius: 12px;
-      padding: 25px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-      border: 2px solid transparent;
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 6px 25px rgba(0,0,0,0.12);
+      border: 3px solid transparent;
       transition: all 0.3s ease;
     }
 
@@ -770,10 +909,10 @@
 
     .element-card {
       background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
-      border-radius: 20px;
-      padding: 30px;
-      box-shadow: 0 6px 25px rgba(0,0,0,0.08);
-      border: 2px solid #e8e8e8;
+      border-radius: 25px;
+      padding: 35px;
+      box-shadow: 0 8px 35px rgba(0,0,0,0.1);
+      border: 3px solid #e8e8e8;
       transition: all 0.4s ease;
       position: relative;
       overflow: hidden;
@@ -1265,21 +1404,23 @@
 
     .contents-section {
       background: linear-gradient(135deg, #f8f7ff 0%, #ffffff 100%);
-      border: 2px solid #6a4c93;
-      border-radius: 10px;
-      padding: 15px;
-      margin: 25px 0;
-      box-shadow: 0 4px 20px rgba(106, 76, 147, 0.1);
+      border: 3px solid #6a4c93;
+      border-radius: 15px;
+      padding: 25px;
+      margin: 30px 0;
+      box-shadow: 0 6px 30px rgba(106, 76, 147, 0.15);
     }
 
     .contents-title {
-      font-size: 14px;
-      font-weight: 600;
+      font-size: 18px;
+      font-weight: 700;
       color: #1a1a1a;
-      margin-bottom: 12px;
+      margin-bottom: 15px;
       text-align: center;
-      border-bottom: 2px solid #6a4c93;
-      padding-bottom: 6px;
+      border-bottom: 3px solid #6a4c93;
+      padding-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
     .contents-links {
@@ -1291,16 +1432,18 @@
 
     .contents-link {
       display: inline-block;
-      padding: 6px 10px;
+      padding: 8px 15px;
       background: #ffffff;
-      border: 1px solid #e0e0e0;
-      border-radius: 5px;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
       color: #1a1a1a;
       text-decoration: none;
-      font-size: 11px;
-      font-weight: 500;
+      font-size: 13px;
+      font-weight: 600;
       transition: all 0.3s ease;
       white-space: nowrap;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
 
     .contents-link:hover {
@@ -1327,25 +1470,44 @@
       }
     }
 
+
+
     /* ============================================================================
        RESPONSIVE DESIGN (for mobile devices)
        ============================================================================ */
 
     /* Mobile devices (screens smaller than 768px) */
     @media (max-width: 768px) {
-      main {
-        margin: 40px auto;                /* Reduce top/bottom margin for mobile */
-        padding: 0 15px;                  /* Reduce left/right padding for mobile */
+      .slide {
+        padding: 40px 20px;
       }
       
-      header {
-        padding: 16px 20px;               /* Reduce header padding for mobile */
-        flex-direction: column;           /* Stack header items vertically on mobile */
-        gap: 10px;                        /* Add space between header items */
+      .project-title-main {
+        font-size: 32px;
+        width: 95%;
       }
       
-      #d3-container-2 {
-        height: 300px;                    /* Reduce graph height for mobile */
+      .section-content {
+        font-size: 16px;
+        padding: 30px 20px;
+      }
+      
+      .slide-nav {
+        bottom: 20px;
+        gap: 10px;
+      }
+      
+      .nav-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+      }
+      
+      .slide-counter {
+        top: 20px;
+        right: 20px;
+        padding: 8px 15px;
+        font-size: 14px;
       }
     }
   </style>
@@ -1356,470 +1518,566 @@
   
 
   
-  <!-- Header section at the top of the page -->
-  <header>
-    <!-- Left side of header - institution name -->
-    <div class="left">Columbia GSAPP</div>
-    
-    <!-- Center of header - main title and subtitle -->
-    <div class="center">
-      Computational Design Practices<br>
-      <!-- <br> creates a line break, moving the next text to a new line -->
-      <span>Colloquium 1 Summer 2025</span>
-      <!-- span is an inline element that groups text without creating a new line -->
-    </div>
-    
-    <!-- Right side of header - student name -->
-    <div class="right">Romayssae El Idrissi</div>
-  </header>
+      <!-- Header section at the top of the page -->
+    <header>
+      <!-- Left side of header - institution name -->
+      <div class="left"><strong>Columbia GSAPP</strong></div>
+      
+      <!-- Center of header - main title and subtitle -->
+      <div class="center">
+        <strong>Computational Design Practices</strong><br>
+        <!-- <br> creates a line break, moving the next text to a new line -->
+        <span><strong>Colloquium 1 Summer 2025</strong></span>
+        <!-- span is an inline element that groups text without creating a new line -->
+      </div>
+      
+      <!-- Right side of header - student name -->
+      <div class="right"><strong>Romayssae El Idrissi</strong></div>
+    </header>
 
   <!-- Main content area -->
-  <main>
-    <!-- Main title of the research project -->
-    <div class="project-title-main">Sensing Space: Color, Form, and Light in Affective Architecture</div>
-    
-    <!-- Table of Contents -->
-    <div class="contents-section">
-      <div class="contents-title">Contents</div>
-      <div class="contents-links">
-        <a href="#research-questions" class="contents-link">Research Questions</a>
-        <a href="#keywords" class="contents-link">Keywords</a>
-        <a href="#intersecting-fields" class="contents-link">3 Intersecting Fields</a>
-        <a href="#historical-lineage" class="contents-link">Historical Lineage</a>
-        <a href="#community-practice" class="contents-link">My Community of Practice</a>
-        <a href="#situated-technology" class="contents-link">Situated Technology</a>
-        <a href="#methods" class="contents-link">Methods</a>
-        <a href="#computational-experiments" class="contents-link">Computational Design Experiments</a>
-        <a href="#visual-representation" class="contents-link">Visual Representation</a>
-        <a href="#rhetorical-argument" class="contents-link">Rhetorical Argument</a>
-        <a href="#capstone-outline" class="contents-link">Brief Outline of a Potential Capstone Project</a>
-        <a href="#challenges" class="contents-link">The Challenge</a>
-      </div>
+  <main class="sections-container">
+    <!-- Scroll indicator -->
+    <div class="scroll-indicator" id="scroll-indicator">
+      <!-- Dots will be generated by JavaScript -->
     </div>
 
-    <!-- Research question section -->
-    <div id="research-questions" class="project-title">Research questions</div>
-    <div class="section-content">
-      • How can computational design create architectural spaces that evoke specific emotional states through color, light, and form?<br><br>
-      • What are the ethical implications of using technology to engineer emotional atmospheres in built environments?<br><br>
-      • How do immersive color-light environments affect human perception and emotional experience?<br><br>
-      • What new human-environment relationships emerge when spaces become emotionally responsive?<br><br>
-      • How can affective architecture address mental health and urban wellbeing in digital societies?
-    </div>
-    
-    <!-- Keywords section -->
-    <div id="keywords" class="project-title">Keywords</div>
-    <div class="section-content">
-      • Affective Architecture<br>
-      • Emotional Atmospheres<br>
-      • Computational Color Design<br>
-      • Sensory Immersion<br>
-      • Spatial Psychology<br>
-      • Responsive Environments
-    </div>
-    
-    <!-- Intersecting fields section -->
-    <div id="intersecting-fields" class="project-title">3 Intersecting Fields</div>
-    <div class="section-content">
-      <div class="intersecting-circles">
-        <div class="circle computational">
-          <div class="circle-content">
-            <h3>Computational Design & Interactive Media</h3>
-            <p>Using code and digital tools to prototype and visualize emotional spatial experiences, including real-time responsive systems, generative design algorithms, and interactive installations that adapt to human presence and behavior.</p>
-          </div>
-        </div>
-        <div class="circle psychology">
-          <div class="circle-content">
-            <h3>Color Theory & Psychology</h3>
-            <p>Investigating the emotional and psychological impact of color and light on human perception and mood, drawing from neuroscience, environmental psychology, and phenomenological studies of spatial experience.</p>
-          </div>
-        </div>
-        <div class="circle architecture">
-          <div class="circle-content">
-            <h3>Spatial & Experiential Architecture</h3>
-            <p>Creating physical and virtual environments that evoke affective responses through form, color, and light, bridging the gap between digital simulation and embodied experience in architectural space.</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-    
-    <!-- Historical lineage section -->
-    <div id="historical-lineage" class="project-title">Historical Lineage</div>
-    <div class="section-content">
-      <div class="timeline-container">
-        <div class="timeline">
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <div class="timeline-date">1919-1933</div>
-              <h3>Bauhaus Color Theory</h3>
-              <p>Johannes Itten's color theory, Josef Albers' color interactions, and the systematic exploration of color as a fundamental design element in architecture and art.</p>
-            </div>
-          </div>
-          
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <div class="timeline-date">1920s-1960s</div>
-              <h3>Modernist Color Architecture</h3>
-              <p>Le Corbusier's polychromy architecture, De Stijl color theory, and the integration of color as a structural and spatial element in modernist buildings.</p>
-            </div>
-          </div>
-          
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <div class="timeline-date">1950s-1970s</div>
-              <h3>Op Art & Kinetic Art</h3>
-              <p>Bridget Riley's optical illusions, Victor Vasarely's geometric abstractions, and the GRAV group's investigations into dynamic color interactions and viewer perception.</p>
-            </div>
-          </div>
-          
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <div class="timeline-date">1960s-1980s</div>
-              <h3>Light and Space Movement</h3>
-              <p>James Turrell's perceptual installations, Robert Irwin's environmental works, and Dan Flavin's fluorescent light sculptures that transformed space through light and color.</p>
-            </div>
-          </div>
-          
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <div class="timeline-date">1970s-2000s</div>
-              <h3>Phenomenological Architecture</h3>
-              <p>Juhani Pallasmaa's embodied experience theories, Steven Holl's phenomenological approach to light and space, and Peter Zumthor's atmospheric architecture emphasizing sensory perception.</p>
-            </div>
-          </div>
-          
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <div class="timeline-date">1990s-Present</div>
-              <h3>Digital Color & Interactive Media</h3>
-              <p>Early computational art experiments, digital color theory, and the emergence of interactive installations that respond to human presence and behavior.</p>
-            </div>
-          </div>
-          
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <div class="timeline-date">2000s-Present</div>
-              <h3>Contemporary Computational Art</h3>
-              <p>Refik Anadol's AI-driven environments, teamLab's immersive installations, and the rise of machine learning in creating responsive emotional landscapes.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <!-- Community of practice section -->
-    <div id="community-practice" class="project-title">My Community of Practice</div>
-    <div class="section-content">
-      This project is situated among a vibrant community of artists, designers, and computational practitioners who explore the intersection of color, light, form, and emotion in immersive environments. These creators use computational tools and spatial design to shape affective atmospheres that engage users sensorially and emotionally. Key figures include:<br><br>
-      
-      • <strong>Liz West</strong>: Known for her striking color-saturated light installations such as <em>Our Colour Reflection</em> and <em>Colour Transfer</em>, West's work uses vivid colored light to create powerful emotional experiences and heighten sensory awareness. Her installations emphasize how color can transform perception within a space, inspiring my focus on emotional color fields. I position my work as a computational extension of her phenomenological approach, using digital tools to create more responsive and adaptive color environments.<br>
-      <div class="practitioner-images">
-        <img src="liz1.jpg" alt="Liz West artwork 1">
-        <img src="liz2.jpg" alt="Liz West artwork 2">
-        <img src="liz3.jpg" alt="Liz West artwork 3">
-      </div><br>
-      
-      • <strong>James Turrell</strong>: A seminal figure in light and space art, Turrell designs immersive perceptual experiences using carefully controlled light and color, exemplified by works like <em>Aten Reign</em> and <em>Ganzfeld</em>. His architectural voids manipulate viewers' sense of space and emotion, demonstrating the profound effect of light and color on atmosphere. My work builds upon his perceptual investigations but introduces computational responsiveness and emotional modeling to create more dynamic, user-adaptive experiences.<br>
-      <div class="practitioner-images">
-        <img src="turrel1.jpg" alt="James Turrell artwork 1">
-        <img src="turrel.webp" alt="James Turrell artwork 2">
-        <img src="turrell.jpg" alt="James Turrell artwork 3">
-      </div><br>
-      
-      • <strong>Olafur Eliasson</strong>: Blending phenomenology and environmental art, Eliasson's projects such as <em>Room for One Colour</em> and <em>Your Uncertain Shadow</em> use shifting monochromatic light and spatial interventions to explore perception and mood. His hybrid approach combining computation, architecture, and sensory experience informs my project's conceptual framework. I extend his environmental consciousness by incorporating real-time emotional feedback and adaptive color systems.<br>
-      <div class="practitioner-images">
-        <img src="olafur.jpg" alt="Olafur Eliasson artwork 1">
-        <img src="olafur2.webp" alt="Olafur Eliasson artwork 2">
-        <img src="olafur3.jpg" alt="Olafur Eliasson artwork 3">
-      </div><br>
-      
-      • <strong>Jenny Sabin Studio</strong>: This design practice creates responsive, data-driven architectural environments such as <em>Lumen</em> and <em>Nanotecture</em>, which use textiles, light, and computational design to produce changing emotional atmospheres. Their work demonstrates the potential for materials and technology to interact dynamically with human emotion. My project shares their interest in responsive environments but focuses specifically on emotional color design rather than structural responsiveness.<br>
-      <div class="practitioner-images">
-        <img src="jenny.jpg" alt="Jenny Sabin Studio artwork 1">
-        <img src="jenny1.jpg" alt="Jenny Sabin Studio artwork 2">
-        <img src="jenny2.jpg" alt="Jenny Sabin Studio artwork 3">
-      </div><br>
-      
-      • <strong>Refik Anadol</strong>: Using machine learning and large-scale data visualization, Anadol's immersive projections like <em>Melting Memories</em> transform architectural spaces into dynamic emotional landscapes, emphasizing the role of data as a medium for affective experience. While I admire his technical sophistication, my work critiques the passive consumption of AI-generated content by creating more interactive, user-controlled emotional environments that prioritize human agency over algorithmic determinism.<br>
-      <div class="practitioner-images">
-        <img src="refik1.avif" alt="Refik Anadol artwork 1">
-        <img src="refik2.jpg" alt="Refik Anadol artwork 2">
-        <img src="refik3.jpg" alt="Refik Anadol artwork 3">
-      </div><br>
-      
-      My project reorients from my precedent study on AI excavation by focusing more directly on embodied emotional atmospheres shaped through color, light, and form, using computational tools to create spatial and experiential designs. While it shares audiences with these practitioners, it also aims to contribute to architectural and design communities invested in affective computing and sensory environmental design. The audience for my project extends beyond the art world to include architects, urban planners, and mental health professionals interested in the therapeutic potential of emotionally intelligent spaces.
-    </div>
-    
-    <!-- Situated technology section -->
-    <div id="situated-technology" class="project-title">Situated Technology</div>
-    <div class="section-content">
-      I engage with computational design tools such as p5.js, Three.js, and D3.js to prototype and simulate affective atmospheres, situating technology as both a medium and method for exploring emotional architectural space. This approach aligns with the CDP theme of situated technology by treating computation not as a universal solution but as a contextual tool embedded within specific spatial and emotional conditions. The technology serves the human experience rather than dictating it, creating responsive environments that adapt to individual emotional states and collective atmospheres. This challenges the dominant paradigm of technology-driven design by prioritizing emotional intelligence and human agency in computational systems.
-    </div>
-    
-    <!-- Methods section -->
-    <div id="methods" class="project-title">Methods</div>
-    <div class="section-content">
-      • <strong>Software & Computational:</strong> p5.js for prototyping emotional interactions and real-time color systems; Three.js for 3D spatial simulations and immersive environments; D3.js for data visualization of emotional patterns; Processing for generative color algorithms.<br><br>
-      
-      • <strong>Data & Modeling:</strong> Emotion models like the Circumplex Model and Plutchik's Wheel to inform spatial color and light design; biometric data collection for emotional response mapping; machine learning for pattern recognition in emotional color preferences.<br><br>
-      
-      • <strong>Qualitative Research:</strong> User interviews and feedback sessions to capture affective responses; phenomenological analysis of spatial experience; ethnographic observation of emotional behavior in designed environments.<br><br>
-      
-      • <strong>Physical & Material:</strong> Printed visualizations and QR-linked immersive environments; physical color samples and material testing; scale models and prototypes for spatial validation.<br><br>
-      
-      • <strong>Design & Aesthetic:</strong> Combining color bands, light modulation, and simple geometric forms to create affective zones; iterative design processes informed by user testing; visual language development through digital and analog sketching.
-    </div>
-    
-    <!-- Computational design experiments section -->
-    <div id="computational-experiments" class="project-title">Computational Design Experiments</div>
-    <div class="section-content">
-      Throughout the semester, I developed a comprehensive computational experiment that informed my project development:<br><br>
-      • <strong>Purple Color Experimentation Platform</strong>: Developed a comprehensive interactive website exploring the emotional and perceptual qualities of purple through multiple computational approaches. This experiment combines p5.js for interactive color animations, D3.js for data visualization of purple's evolution through time, and Three.js for immersive 3D environments. The platform includes an "Amethyst Light Emergence Network" that visualizes the chemistry and physics of purple coloration, interactive sound machines that respond to purple crystal interactions, and neighborhood explorations that map purple's presence across Manhattan. This work demonstrates my interest in using computational tools to create multi-sensory experiences that explore the emotional and cultural dimensions of color.<br><br>
-      
-      <div class="experiment-description">Interactive Purple Realities Experiment - Explore the embedded website below:</div>
-      <div class="experiment-content">
-        <div class="experiment-section">
-          <h3>Amethyst Light Emergence Network</h3>
-          <p>An interactive visualization exploring the chemistry and physics of purple coloration, showing how light interacts with crystal structures to create the distinctive amethyst hue. Users can manipulate molecular arrangements and observe real-time color changes.</p>
-        </div>
-        
-        <div class="experiment-section">
-          <h3>Purple Crystal Sound Machines</h3>
-          <p>Interactive sound installations that respond to purple crystal interactions, creating ambient audio environments that complement the visual experience. Each crystal generates unique tonal patterns based on its geometric properties.</p>
-        </div>
-        
-        <div class="experiment-section">
-          <h3>Manhattan Purple Mapping</h3>
-          <p>An imagined color-based mapping system that uses purple as a navigational and emotional guide through Manhattan, rather than traditional functional mapping. This conceptual approach treats color as the primary organizing principle, creating a new way of experiencing urban space through chromatic awareness and emotional resonance.</p>
-        </div>
-        
-        <div class="experiment-link">
-          <a href="https://romeli7.github.io/my-first-repo/" target="_blank" class="experiment-button">
-            <span>View Full Interactive Experience</span>
-            <span class="arrow">→</span>
-          </a>
-        </div>
-      </div>
+    <!-- Title Section -->
+    <div class="fullscreen-section active" id="title-section">
+      <div class="project-title-main">The Missing Sense</div>
+      <div class="project-subtitle">Computational Design for Sensory Integration</div>
     </div>
     
 
-    
-    <!-- Visual representation section -->
-    <div id="visual-representation" class="project-title">Visual Representation</div>
-    <div class="section-content">
-      <div class="visual-language-container">
-        <!-- Visual Elements Grid -->
-        <div class="visual-elements">
-          <div class="element-card">
-            <div class="element-visual gradient-demo">
-              <div class="gradient-layer"></div>
-              <div class="gradient-layer"></div>
-              <div class="gradient-layer"></div>
-            </div>
-            <div class="element-title">Color Field Gradients</div>
-            <div class="element-desc">Layered color transitions that evoke emotional depth and atmospheric quality</div>
-          </div>
-          
-          <div class="element-card">
-            <div class="element-visual geometric-demo">
-              <div class="geo-shape"></div>
-              <div class="geo-shape"></div>
-              <div class="geo-shape"></div>
-            </div>
-            <div class="element-title">Geometric Forms</div>
-            <div class="element-desc">Precise shapes and structures that create spatial relationships and visual hierarchy</div>
-          </div>
-          
-          <div class="element-card">
-            <div class="element-visual light-demo">
-              <div class="light-ray"></div>
-              <div class="light-ray"></div>
-              <div class="light-ray"></div>
-              <div class="light-core"></div>
-            </div>
-            <div class="element-title">Layered Light</div>
-            <div class="element-desc">Multi-dimensional illumination that creates depth and emotional atmosphere</div>
-          </div>
+
+    <!-- Process Section -->
+    <div class="fullscreen-section" id="process">
+      <div class="section-content">
+        We've fragmented our natural sensory experience—screens for vision, speakers for sound, keyboards for touch—creating artificial boundaries where none existed.<br><br>
+        
+        What if the "missing sense" we've always searched for, or what we've always called the "6th sense," isn't a new sense at all, but the natural integration of all our senses? What if there are senses we haven't even discovered yet?<br><br>
+        
+        This project uses computational design to reunite our fragmented perception, creating new sensory experiences that transcend the artificial boundaries we've built.
+      </div>
+    </div>
+
+    <!-- Sensory Boundaries Section -->
+    <div class="fullscreen-section" id="sensory-boundaries">
+      <div class="project-title">Impossible Combinations</div>
+      <div class="section-content">
+        <div style="position: absolute; top: 25%; left: 15%; font-size: 32px; font-weight: 600; color: #6a4c93;">taste colors</div>
+        <div style="position: absolute; top: 25%; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: 600; color: #6a4c93;">see sounds</div>
+        <div style="position: absolute; top: 25%; right: 15%; font-size: 32px; font-weight: 600; color: #6a4c93;">smell shapes</div>
+        
+        <div style="position: absolute; top: 50%; left: 15%; font-size: 32px; font-weight: 600; color: #6a4c93;">feel memories</div>
+        <div style="position: absolute; top: 50%; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: 600; color: #6a4c93;">hear textures</div>
+        <div style="position: absolute; top: 50%; right: 15%; font-size: 32px; font-weight: 600; color: #6a4c93;">touch emotions</div>
+        
+        <div style="position: absolute; top: 75%; left: 15%; font-size: 32px; font-weight: 600; color: #6a4c93;">taste thoughts</div>
+        <div style="position: absolute; top: 75%; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: 600; color: #6a4c93;">see time</div>
+        <div style="position: absolute; top: 75%; right: 15%; font-size: 32px; font-weight: 600; color: #6a4c93;">hear silence</div>
+      </div>
+    </div>
+
+    <!-- Rhetorical Argument Section -->
+    <div class="fullscreen-section" id="rhetorical-argument">
+      <div class="project-title">The Argument</div>
+      <div class="section-content">
+        <div style="position: absolute; top: 25%; left: 50%; transform: translateX(-50%); font-size: 42px; font-weight: 600; color: #6a4c93; text-align: center; line-height: 1.2; width: 80%;">
+          <span style="font-weight: 700; color: #6a4c93;">If</span> we can transcend the built boundaries of the five-sense model,<br>
+          <span style="font-weight: 700; color: #6a4c93;">then</span> we can treat sensory integration as a design material
         </div>
         
-        <!-- Aesthetic Principles -->
-        <div class="aesthetic-principles">
-          <div class="principle-section">
-            <div class="principle-title">Aesthetic Approach</div>
-            <div class="principle-grid">
-              <div class="principle-item">
-                <div class="principle-icon">🎯</div>
-                <div class="principle-text">Clarity over Complexity</div>
-              </div>
-              <div class="principle-item">
-                <div class="principle-icon">💜</div>
-                <div class="principle-text">Emotional Resonance</div>
-              </div>
-              <div class="principle-item">
-                <div class="principle-icon">🎨</div>
-                <div class="principle-text">Color as Communication</div>
-              </div>
-            </div>
-          </div>
-          
-          <div class="principle-section">
-            <div class="principle-title">Design Philosophy</div>
-            <div class="philosophy-flow">
-              <div class="philosophy-step">
-                <div class="step-number">1</div>
-                <div class="step-text">Digital Precision</div>
-              </div>
-              <div class="philosophy-arrow">+</div>
-              <div class="philosophy-step">
-                <div class="step-number">2</div>
-                <div class="step-text">Phenomenological Sensitivity</div>
-              </div>
-              <div class="philosophy-arrow">=</div>
-              <div class="philosophy-step result">
-                <div class="step-number">3</div>
-                <div class="step-text">Emotionally Accessible</div>
-              </div>
-            </div>
-          </div>
+
+      </div>
+    </div>
+
+    <!-- Built Boundaries Section -->
+    <div class="fullscreen-section" id="built-boundaries">
+      <div class="project-title">Built Boundaries: De Anima, Aristotle, 350 BC</div>
+      <div class="section-content">
+        <div style="position: absolute; top: 15%; left: 30%; transform: translateX(-50%); width: 250px; text-align: center;">
+          <img src="deanima.jpg" alt="Aristotle De Anima" style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
         </div>
-        
-        <!-- Community Context -->
-        <div class="community-context">
-          <div class="context-title">Visual Language Communities</div>
-          <div class="community-grid">
-            <div class="community-item">
-              <div class="community-icon">💻</div>
-              <div class="community-name">Computational Artists</div>
-              <div class="community-focus">Technical Innovation</div>
-            </div>
-            <div class="community-item">
-              <div class="community-icon">🏗️</div>
-              <div class="community-name">Environmental Designers</div>
-              <div class="community-focus">Spatial Experience</div>
-            </div>
-            <div class="community-item">
-              <div class="community-icon">🧠</div>
-              <div class="community-name">Affective Computing</div>
-              <div class="community-focus">Emotional Intelligence</div>
-            </div>
-          </div>
+        <div style="position: absolute; top: 15%; right: 30%; transform: translateX(50%); width: 350px; text-align: center;">
+          <img src="5senses.JPG" alt="Five Senses" style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
         </div>
       </div>
     </div>
-    
-    <!-- Rhetorical argument section -->
-    <div id="rhetorical-argument" class="project-title">Rhetorical Argument</div>
-    <div class="section-content">
-      <div class="argument-diagram">
-        <div class="argument-flow">
-          <!-- Proposed Paradigm -->
-          <div class="argument-box proposed">
-            <div class="box-header">Proposed Paradigm</div>
-            <div class="box-content">
-              <div class="priority-list">
-                <div class="priority-item primary">Human Wellbeing</div>
-                <div class="priority-item secondary">Emotional Intelligence</div>
-                <div class="priority-item tertiary">Form & Function</div>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Challenge Arrow -->
-          <div class="challenge-arrow">
-            <div class="arrow-line"></div>
-            <div class="arrow-head"></div>
-            <div class="challenge-text">CHALLENGES</div>
-          </div>
-          
-          <!-- Current Paradigm -->
-          <div class="argument-box current">
-            <div class="box-header">Current Paradigm</div>
-            <div class="box-content">
-              <div class="priority-list">
-                <div class="priority-item primary">Form & Function</div>
-                <div class="priority-item secondary">Aesthetics</div>
-                <div class="priority-item tertiary">Human Emotion</div>
-              </div>
-            </div>
-          </div>
+
+    <!-- Built Boundaries: Descartes Section -->
+    <div class="fullscreen-section" id="built-boundaries-descartes">
+      <div class="project-title">Built Boundaries: Treatise on Man, Descartes, 1662</div>
+      <div class="section-content">
+        <div style="position: absolute; top: 15%; left: 30%; transform: translateX(-50%); width: 250px; text-align: center;">
+          <img src="descartes1.jpg" alt="Descartes Treatise" style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
         </div>
-        
-        <!-- Supporting Evidence -->
-        <div class="evidence-section">
-          <div class="evidence-title">Supporting Evidence</div>
-          <div class="evidence-grid">
-            <div class="evidence-item">
-              <div class="evidence-icon">🎨</div>
-              <div class="evidence-text">Color as fundamental architectural material</div>
-            </div>
-            <div class="evidence-item">
-              <div class="evidence-icon">💻</div>
-              <div class="evidence-text">Computational tools for responsive environments</div>
-            </div>
-            <div class="evidence-item">
-              <div class="evidence-icon">🧠</div>
-              <div class="evidence-text">Emotion as design parameter, not afterthought</div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Broader Impact -->
-        <div class="impact-section">
-          <div class="impact-title">Broader Societal Impact</div>
-          <div class="impact-flow">
-            <div class="impact-item">
-              <div class="impact-icon">🏥</div>
-              <div class="impact-text">Mental Health</div>
-            </div>
-            <div class="impact-item">
-              <div class="impact-icon">🏙️</div>
-              <div class="impact-text">Urban Stress</div>
-            </div>
-            <div class="impact-item">
-              <div class="impact-icon">👥</div>
-              <div class="impact-text">Human-Centered Design</div>
-            </div>
-            <div class="impact-item">
-              <div class="impact-icon">🌐</div>
-              <div class="impact-text">Digital Connection</div>
-            </div>
-          </div>
+        <div style="position: absolute; top: 15%; right: 30%; transform: translateX(50%); width: 250px; text-align: center;">
+          <img src="descartes2.avif" alt="Mechanistic Senses" style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
         </div>
       </div>
     </div>
-    
-    <!-- Capstone project outline section -->
-    <div id="capstone-outline" class="project-title">Brief Outline of a Potential Capstone Project</div>
-    <div class="section-content">
-      The capstone project will develop into a full-scale interactive immersive installation that creates a complete emotional journey through space. The installation will feature five distinct spatial zones, each representing different emotional states from the Circumplex Model (joy, calm, energy, mystery, serenity), with adaptive modulation of color, light, and form that responds to individual users and collective group dynamics. The project will integrate advanced computational systems including real-time emotional sensing, machine learning for pattern recognition, and responsive environmental controls. The installation will serve as both a research platform for studying emotional responses to designed environments and a demonstration of the potential for emotionally intelligent architecture. Rather than proposing a solution to a problem I don't yet fully understand, this approach allows for iterative development and discovery of new insights about the relationship between emotion, space, and technology.
+
+    <!-- Built Boundaries: Newton Section -->
+    <div class="fullscreen-section" id="built-boundaries-newton">
+      <div class="project-title">Built Boundaries: Opticks, Newton, 1704</div>
+      <div class="section-content">
+        <div style="position: absolute; top: 15%; left: 30%; transform: translateX(-50%); width: 250px; text-align: center;">
+          <img src="newton1.jpg" alt="Newton Opticks" style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+        </div>
+        <div style="position: absolute; top: 15%; right: 30%; transform: translateX(50%); width: 400px; text-align: center;">
+          <img src="newton2.jpg" alt="Color Spectrum" style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+        </div>
+      </div>
     </div>
-    
-    <!-- The challenge section -->
-    <div id="challenges" class="project-title">The Challenge</div>
-    <div class="section-content">
-      • <strong>Technical Skills</strong>: Mastering real-time 3D visualization tools like Three.js, learning advanced computational techniques for emotional modeling, and developing proficiency in interactive system design.<br>
-      • <strong>Conceptual Balance</strong>: Balancing computational complexity with emotional clarity, ensuring that technical sophistication serves rather than overwhelms the emotional experience.<br>
-      • <strong>Interface Design</strong>: Creating intuitive physical-digital interfaces that feel natural and responsive, bridging the gap between computational systems and human emotional experience.<br>
-      • <strong>Interdisciplinary Integration</strong>: Synthesizing knowledge from color theory, psychology, architecture, and computational design into a coherent and meaningful practice.<br>
-      • <strong>Research Methodology</strong>: Developing rigorous methods for studying emotional responses to designed environments, including both qualitative and quantitative approaches.<br>
-      • <strong>Ethical Considerations</strong>: Addressing the ethical implications of emotional engineering and ensuring that the technology serves human wellbeing rather than manipulation.
+
+    <!-- Senses Integrated: Anadol Section -->
+    <div class="fullscreen-section" id="senses-combined-anadol">
+      <div class="project-title">Senses Integrated: Machine Hallucination, Anadol, 2019</div>
+      <div class="section-content">
+        <div style="position: absolute; top: 15%; left: 30%; transform: translateX(-50%); width: 450px; text-align: center;">
+          <img src="anadol1.jpg" alt="AI Multi-Sensory" style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+        </div>
+        <div style="position: absolute; top: 15%; right: 30%; transform: translateX(50%); width: 450px; text-align: center;">
+          <img src="anafol2.jpg" alt="Integrated Environments" style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+        </div>
+      </div>
     </div>
+
+    <!-- Senses Integrated: teamLab Section -->
+    <div class="fullscreen-section" id="senses-combined-teamlab">
+      <div class="project-title">Senses Integrated: Borderless, teamLab, 2018</div>
+      <div class="section-content">
+        <div style="position: absolute; top: 15%; left: 30%; transform: translateX(-50%); width: 450px; text-align: center;">
+          <img src="teamlab1.jpg" alt="Immersive Integration" style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+        </div>
+        <div style="position: absolute; top: 15%; right: 30%; transform: translateX(50%); width: 450px; text-align: center;">
+          <img src="teamlab2.jpg" alt="Sensory Unity" style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+        </div>
+      </div>
+    </div>
+
+    <!-- Senses Integrated: Hemmer Section -->
+    <div class="fullscreen-section" id="senses-combined-hemmer">
+      <div class="project-title">Senses Integrated: Pulse Room, Hemmer, 2006</div>
+      <div class="section-content">
+        <div style="position: absolute; top: 15%; left: 30%; transform: translateX(-50%); width: 450px; text-align: center;">
+          <img src="Rafael_Lozano-Hemmer_Pace_01.jpg" alt="Heartbeat Light" style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+        </div>
+        <div style="position: absolute; top: 15%; right: 30%; transform: translateX(50%); width: 450px; text-align: center;">
+          <img src="rafael2.jpg" alt="Bodily Integration" style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+        </div>
+      </div>
+    </div>
+
+    <!-- Senses Integrated: Ikeda Section -->
+    <div class="fullscreen-section" id="senses-combined-ikeda">
+      <div class="project-title">Senses Integrated: Data-verse, Ikeda, 2019</div>
+      <div class="section-content">
+        <div style="position: absolute; top: 15%; left: 30%; transform: translateX(-50%); width: 450px; text-align: center;">
+          <img src="Ryoji-Ikeda_HIROSAKI-MOCA-09_Photo-Takeshi-Asano-1024x654.jpg" alt="Data Visualization" style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+        </div>
+        <div style="position: absolute; top: 15%; right: 30%; transform: translateX(50%); width: 450px; text-align: center;">
+          <img src="ryoji-ikeda-audemars-piguet-venice-biennale1-809x470.jpg" alt="Sensory Data" style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+        </div>
+      </div>
+    </div>
+
+    <!-- Research Network Visualization -->
+    <div class="fullscreen-section" id="research-network">
+      <div class="project-title" style="margin-top: 120px;">Research Network</div>
+      <div style="display: flex; justify-content: center; align-items: center; width: 100%; height: 100%; padding: 0 40px; box-sizing: border-box;">
+        <div id="d3-network-container" style="width: 100%; height: 400px; margin: 0; overflow: visible;"></div>
+      </div>
+    </div>
+
+    <!-- Research Questions Section -->
+    <div class="fullscreen-section" id="research-questions">
+      <div class="project-title" style="margin-top: 120px;">Research Question</div>
+      <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; width: 100%; height: 100%; padding: 0 40px; box-sizing: border-box; text-align: center;">
+        
+        <!-- Main Research Question -->
+        <div style="max-width: 1000px;">
+          <div style="font-size: 48px; font-weight: 700; color: #6a4c93; line-height: 1.2;">
+            How can computational design create new sensory experiences that transcend the traditional five-sense model?
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
     
   </main>
 
+  <!-- D3.js Library -->
+  <script src="https://d3js.org/d3.v7.min.js"></script>
 
+  <!-- JavaScript for section navigation -->
+  <script>
+    let currentSection = 1;
+    const totalSections = 13;
+    let isScrolling = false;
+          const sections = [
+        'title-section',
+        'process',
+        'sensory-boundaries',
+        'rhetorical-argument',
+        'built-boundaries',
+        'built-boundaries-descartes',
+        'built-boundaries-newton',
+        'senses-combined-anadol',
+        'senses-combined-teamlab',
+        'senses-combined-hemmer',
+        'senses-combined-ikeda',
+        'research-network',
+        'research-questions'
+      ];
 
+    // Generate scroll dots
+    function generateScrollDots() {
+      const scrollIndicator = document.getElementById('scroll-indicator');
+      for (let i = 0; i < totalSections; i++) {
+        const dot = document.createElement('div');
+        dot.className = 'scroll-dot';
+        dot.setAttribute('data-section', i + 1);
+        dot.addEventListener('click', () => {
+          if (!isScrolling) {
+            isScrolling = true;
+            currentSection = i + 1;
+            showSection(currentSection);
+            setTimeout(() => { isScrolling = false; }, 800);
+          }
+        });
+        scrollIndicator.appendChild(dot);
+      }
+    }
 
+    function updateScrollDots() {
+      document.querySelectorAll('.scroll-dot').forEach((dot, index) => {
+        if (index + 1 === currentSection) {
+          dot.classList.add('active');
+        } else {
+          dot.classList.remove('active');
+        }
+      });
+    }
+
+    function showSection(sectionNumber) {
+      // Hide all sections
+      document.querySelectorAll('.fullscreen-section').forEach(section => {
+        section.classList.remove('active', 'prev');
+      });
+
+      // Show current section
+      const currentSectionElement = document.getElementById(sections[sectionNumber - 1]);
+      if (currentSectionElement) {
+        currentSectionElement.classList.add('active');
+      }
+
+      // Update scroll dots
+      updateScrollDots();
+
+      // Handle header visibility
+      const header = document.querySelector('header');
+      
+      if (sectionNumber === 1) {
+        header.classList.remove('hidden');
+      } else {
+        header.classList.add('hidden');
+      }
+    }
+
+    function nextSection() {
+      if (currentSection < totalSections && !isScrolling) {
+        isScrolling = true;
+        currentSection++;
+        showSection(currentSection);
+        setTimeout(() => { isScrolling = false; }, 800);
+      }
+    }
+
+    function prevSection() {
+      if (currentSection > 1 && !isScrolling) {
+        isScrolling = true;
+        currentSection--;
+        showSection(currentSection);
+        setTimeout(() => { isScrolling = false; }, 800);
+      }
+    }
+
+    // Scroll wheel navigation
+    document.addEventListener('wheel', function(e) {
+      e.preventDefault();
+      if (!isScrolling) {
+        if (e.deltaY > 0) {
+          nextSection();
+        } else {
+          prevSection();
+        }
+      }
+    }, { passive: false });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'ArrowDown' || e.key === ' ' || e.key === 'PageDown') {
+        e.preventDefault();
+        nextSection();
+      } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
+        e.preventDefault();
+        prevSection();
+      }
+    });
+
+    // Touch/swipe navigation for mobile
+    let touchStartY = 0;
+    document.addEventListener('touchstart', function(e) {
+      touchStartY = e.touches[0].clientY;
+    });
+
+    document.addEventListener('touchend', function(e) {
+      if (!isScrolling) {
+        const touchEndY = e.changedTouches[0].clientY;
+        const diff = touchStartY - touchEndY;
+        
+        if (Math.abs(diff) > 50) { // Minimum swipe distance
+          if (diff > 0) {
+            nextSection();
+          } else {
+            prevSection();
+          }
+        }
+      }
+    });
+
+    // Initialize
+    generateScrollDots();
+    showSection(1);
+
+    // D3.js Network Visualization
+    function createResearchNetwork() {
+      const data = {
+        nodes: [
+          // Keywords (Sensory Focus)
+          { id: "sensory-integration", group: "keywords", label: "Sensory Integration", width: 140, height: 55 },
+          { id: "synesthesia", group: "keywords", label: "Synesthesia", width: 120, height: 55 },
+          { id: "proprioception", group: "keywords", label: "Proprioception", width: 130, height: 55 },
+          { id: "interoception", group: "keywords", label: "Interoception", width: 120, height: 55 },
+          { id: "multi-sensory", group: "keywords", label: "Multi-Sensory", width: 130, height: 55 },
+          { id: "embodied-perception", group: "keywords", label: "Embodied Perception", width: 140, height: 55 },
+          
+          // 3 Intersecting Fields
+          { id: "computational-design", group: "fields", label: "Computational Design", width: 150, height: 55 },
+          { id: "sensory-science", group: "fields", label: "Sensory Science", width: 130, height: 55 },
+          { id: "perceptual-psychology", group: "fields", label: "Perceptual Psychology", width: 140, height: 55 },
+          
+          // Community of Practice (Senses Integrated Artists)
+          { id: "refik-anadol", group: "community", label: "Refik Anadol", width: 130, height: 55 },
+          { id: "teamlab", group: "community", label: "teamLab", width: 110, height: 55 },
+          { id: "rafael-hemmer", group: "community", label: "Rafael Hemmer", width: 130, height: 55 },
+          { id: "ryoji-ikeda", group: "community", label: "Ryoji Ikeda", width: 130, height: 55 },
+          { id: "james-turrell", group: "community", label: "James Turrell", width: 130, height: 55 },
+          { id: "olafur-eliasson", group: "community", label: "Olafur Eliasson", width: 130, height: 55 },
+          { id: "jenny-holzer", group: "community", label: "Jenny Holzer", width: 130, height: 55 },
+          { id: "liz-larner", group: "community", label: "Liz Larner", width: 130, height: 55 }
+        ],
+        links: [
+          // Keywords to Fields
+          { source: "sensory-integration", target: "computational-design", value: 3 },
+          { source: "synesthesia", target: "sensory-science", value: 3 },
+          { source: "proprioception", target: "sensory-science", value: 3 },
+          { source: "interoception", target: "sensory-science", value: 3 },
+          { source: "multi-sensory", target: "perceptual-psychology", value: 3 },
+          { source: "embodied-perception", target: "computational-design", value: 3 },
+          
+          // Fields to Community
+          { source: "computational-design", target: "refik-anadol", value: 4 },
+          { source: "computational-design", target: "teamlab", value: 4 },
+          { source: "sensory-science", target: "rafael-hemmer", value: 4 },
+          { source: "perceptual-psychology", target: "ryoji-ikeda", value: 4 },
+          { source: "sensory-science", target: "james-turrell", value: 4 },
+          { source: "perceptual-psychology", target: "olafur-eliasson", value: 4 },
+          { source: "computational-design", target: "jenny-holzer", value: 4 },
+          { source: "sensory-science", target: "liz-larner", value: 4 },
+          
+          // Keywords to Community
+          { source: "sensory-integration", target: "refik-anadol", value: 2 },
+          { source: "multi-sensory", target: "teamlab", value: 2 },
+          { source: "proprioception", target: "rafael-hemmer", value: 2 },
+          { source: "embodied-perception", target: "ryoji-ikeda", value: 2 },
+          { source: "synesthesia", target: "james-turrell", value: 2 },
+          { source: "multi-sensory", target: "olafur-eliasson", value: 2 },
+          { source: "interoception", target: "jenny-holzer", value: 2 },
+          { source: "embodied-perception", target: "liz-larner", value: 2 }
+        ]
+      };
+
+      const width = document.getElementById('d3-network-container').offsetWidth;
+      const height = 400;
+
+      const svg = d3.select('#d3-network-container')
+        .append('svg')
+        .attr('width', width)
+        .attr('height', height)
+        .style('overflow', 'hidden');
+
+      // Add invisible bounding box for constraint
+      svg.append('rect')
+        .attr('width', width - 40)
+        .attr('height', height - 40)
+        .attr('x', 20)
+        .attr('y', 20)
+        .attr('fill', 'none')
+        .attr('stroke', 'transparent')
+        .attr('stroke-width', 0);
+
+      const simulation = d3.forceSimulation(data.nodes)
+        .force('link', d3.forceLink(data.links).id(d => d.id).distance(150))
+        .force('charge', d3.forceManyBody().strength(-200))
+        .force('center', d3.forceCenter(width / 2, height / 2))
+        .force('collision', d3.forceCollide().radius(d => Math.max(d.width, d.height) / 2 + 15))
+        .force('x', d3.forceX(width / 2).strength(0.1))
+        .force('y', d3.forceY(height / 2).strength(0.1));
+
+      const link = svg.append('g')
+        .selectAll('line')
+        .data(data.links)
+        .enter().append('line')
+        .attr('stroke', '#6a4c93')
+        .attr('stroke-width', d => Math.sqrt(d.value))
+        .attr('opacity', 0.6);
+
+      const node = svg.append('g')
+        .selectAll('g')
+        .data(data.nodes)
+        .enter().append('g')
+        .call(d3.drag()
+          .on('start', dragstarted)
+          .on('drag', dragged)
+          .on('end', dragended));
+
+      node.append('rect')
+        .attr('width', d => d.width)
+        .attr('height', d => d.height)
+        .attr('x', d => -d.width / 2)
+        .attr('y', d => -d.height / 2)
+        .attr('rx', 8)
+        .attr('ry', 8)
+        .attr('fill', d => {
+          if (d.group === 'keywords') return '#8b5cf6';
+          if (d.group === 'fields') return '#ec4899';
+          if (d.group === 'community') return '#c084fc';
+        })
+        .attr('stroke', '#ffffff')
+        .attr('stroke-width', 2);
+
+      node.append('text')
+        .text(d => d.label)
+        .attr('text-anchor', 'middle')
+        .attr('dy', '.35em')
+        .attr('fill', '#ffffff')
+        .attr('font-size', '12px')
+        .attr('font-weight', '600')
+        .style('pointer-events', 'none');
+
+      // Add legend in top right
+      const legend = svg.append('g')
+        .attr('transform', `translate(${width - 200}, 60)`);
+
+      // Legend items
+      const legendData = [
+        { color: '#8b5cf6', label: 'Keywords', group: 'keywords' },
+        { color: '#ec4899', label: 'Fields', group: 'fields' },
+        { color: '#c084fc', label: 'Practitioners', group: 'community' }
+      ];
+
+      legendData.forEach((item, i) => {
+        const legendItem = legend.append('g')
+          .attr('transform', `translate(0, ${i * 25})`);
+
+        legendItem.append('rect')
+          .attr('width', 16)
+          .attr('height', 16)
+          .attr('rx', 3)
+          .attr('fill', item.color)
+          .attr('stroke', '#ffffff')
+          .attr('stroke-width', 1);
+
+        legendItem.append('text')
+          .text(item.label)
+          .attr('x', 25)
+          .attr('y', 12)
+          .attr('fill', '#6a4c93')
+          .attr('font-size', '12px')
+          .attr('font-weight', '600');
+      });
+
+      simulation.on('tick', () => {
+        // Constrain nodes to stay within bounds (avoiding legend area)
+        data.nodes.forEach(d => {
+          d.x = Math.max(d.width/2 + 20, Math.min(width - d.width/2 - 220, d.x));
+          d.y = Math.max(d.height/2 + 20, Math.min(height - d.height/2 - 20, d.y));
+        });
+
+        link
+          .attr('x1', d => d.source.x)
+          .attr('y1', d => d.source.y)
+          .attr('x2', d => d.target.x)
+          .attr('y2', d => d.target.y);
+
+        node
+          .attr('transform', d => `translate(${d.x},${d.y})`);
+      });
+
+      function dragstarted(event, d) {
+        if (!event.active) simulation.alphaTarget(0.3).restart();
+        d.fx = d.x;
+        d.fy = d.y;
+      }
+
+      function dragged(event, d) {
+        d.fx = event.x;
+        d.fy = event.y;
+      }
+
+      function dragended(event, d) {
+        if (!event.active) simulation.alphaTarget(0);
+        d.fx = null;
+        d.fy = null;
+      }
+    }
+
+    // Initialize network when section is shown
+    document.addEventListener('DOMContentLoaded', function() {
+      setTimeout(createResearchNetwork, 1000);
+    });
+  </script>
 
 </body>
 <!-- End of body - all visible content goes above this line -->
 </html>
+<!-- End of HTML document --> 
 <!-- End of HTML document --> 
