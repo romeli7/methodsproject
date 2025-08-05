@@ -1874,7 +1874,7 @@
         <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; width: 100%; height: 100%; padding: 0 40px; box-sizing: border-box;">
                                 <!-- Experiment Container -->
                       <div style="width: 100%; max-width: 900px; text-align: center;">
-                        <h3 style="font-size: 22px; color: #6a4c93; margin-bottom: 15px;">Computational Taste Synthesis</h3>
+                        <h3 style="font-size: 22px; color: #6a4c93; margin-bottom: 8px;">Computational Taste Synthesis</h3>
 
                         <!-- Color Input Section -->
                         <div style="display: flex; gap: 25px; align-items: center; justify-content: center; margin-bottom: 20px;">
@@ -3364,6 +3364,21 @@
         };
       }
       
+      // Function to calculate luminance and determine text color
+      function getContrastColor(backgroundColor) {
+        // Convert hex to RGB
+        const hex = backgroundColor.replace('#', '');
+        const r = parseInt(hex.substr(0, 2), 16);
+        const g = parseInt(hex.substr(2, 2), 16);
+        const b = parseInt(hex.substr(4, 2), 16);
+        
+        // Calculate luminance
+        const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+        
+        // Return white for dark backgrounds, black for light backgrounds
+        return luminance > 0.5 ? '#000000' : '#ffffff';
+      }
+      
       // Update taste result display with complex analysis
       function updateTasteResult(tasteProfile) {
         // Update taste result display with all colors
@@ -3377,7 +3392,13 @@
           gradientColors = inputColors.join(', ');
         }
         tasteResultDisplay.style.background = `conic-gradient(${gradientColors})`;
-        tasteResultDisplay.innerHTML = `${tasteProfile.primary.charAt(0).toUpperCase() + tasteProfile.primary.slice(1)}<br>+<br>${tasteProfile.secondary.charAt(0).toUpperCase() + tasteProfile.secondary.slice(1)}`;
+        
+        // Calculate average color for contrast
+        const avgColor = inputColors[0]; // Use first color as approximation
+        const textColor = getContrastColor(avgColor);
+        tasteResultDisplay.style.color = textColor;
+        
+        tasteResultDisplay.innerHTML = `${tasteProfile.primary}<br>+<br>${tasteProfile.secondary}`;
         
         // Update analysis text with complex attributes and all individual tastes
         const attributesText = tasteProfile.attributes.join(' • ');
