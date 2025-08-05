@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sensing Senses Poster Generator</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: #f0f0f0;
+            font-family: 'Inter', sans-serif;
+        }
+        #poster-container {
+            width: 3600px;
+            height: 7200px;
+            background: white;
+            margin: 0 auto;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        .download-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #6a4c93, #8B5CF6);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            z-index: 1000;
+        }
+        .gradient-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(106, 76, 147, 0.2), rgba(139, 92, 246, 0.2));
+        }
+    </style>
+</head>
+<body>
+    <button class="download-btn" onclick="downloadPoster()">Download Poster (PNG)</button>
+    <div id="poster-container">
+        <!-- Header Section -->
+        <div style="position: absolute; top: 0; left: 0; right: 0; height: 500px; background: linear-gradient(135deg, #f8f7ff 0%, #ffffff 100%); display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <div style="font-size: 120px; font-weight: 700; color: #6a4c93; text-align: center; margin-bottom: 20px;">Sensing Senses</div>
+            <div style="font-size: 48px; font-weight: 400; color: #6a4c93; text-align: center; margin-bottom: 15px;">Computational Design for Sensory Integration</div>
+            <div style="font-size: 36px; font-weight: 500; color: #6a4c93; text-align: center; margin-top: 40px;">Romayssae El Idrissi</div>
+        </div>
+
+        <!-- Research Question - Visual Impact -->
+        <div style="position: absolute; top: 500px; left: 0; right: 0; height: 500px; background: linear-gradient(135deg, #6a4c93 0%, #8B5CF6 100%); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+            <div style="font-size: 72px; font-weight: 700; color: white; line-height: 1.2; max-width: 3200px; padding: 60px;">
+                How can computational design create new sensory experiences<br>that transcend the traditional five-sense model?
+            </div>
+        </div>
+
+        <!-- Historical Lineage - Visual Story -->
+        <div style="position: absolute; top: 1000px; left: 0; right: 0; height: 1000px;">
+            <div style="position: absolute; top: 0; left: 0; right: 0; height: 200px; background: white; display: flex; justify-content: center; align-items: center;">
+                <div style="font-size: 84px; font-weight: 700; color: #6a4c93;">Historical Lineage</div>
+            </div>
+            
+            <!-- Aristotle Section -->
+            <div style="position: absolute; top: 200px; left: 0; width: 1200px; height: 800px; background: url('5senses.JPG') center/cover;">
+                <div class="gradient-overlay"></div>
+                <div style="position: absolute; bottom: 40px; left: 40px; right: 40px;">
+                    <div style="font-size: 44px; font-weight: 700; color: black; margin-bottom: 15px;">Aristotle, 350 BC</div>
+                    <div style="font-size: 24px; color: black; line-height: 1.4;">De Anima established the five-sense model that has dominated Western thought for millennia</div>
+                </div>
+            </div>
+            
+            <!-- Descartes Section -->
+            <div style="position: absolute; top: 200px; left: 1200px; width: 1200px; height: 800px; background: url('descartes2.avif') center top;">
+                <div class="gradient-overlay"></div>
+                <div style="position: absolute; bottom: 40px; left: 40px; right: 40px;">
+                    <div style="font-size: 44px; font-weight: 700; color: black; margin-bottom: 15px;">Descartes, 1662</div>
+                    <div style="font-size: 24px; color: black; line-height: 1.4;">Treatise on Man mechanized the senses, treating them as computational systems</div>
+                </div>
+            </div>
+            
+            <!-- Newton Section -->
+            <div style="position: absolute; top: 200px; left: 2400px; width: 1200px; height: 800px; background: url('newton2.jpg') center/cover;">
+                <div class="gradient-overlay"></div>
+                <div style="position: absolute; bottom: 40px; left: 40px; right: 40px;">
+                    <div style="font-size: 44px; font-weight: 700; color: black; margin-bottom: 15px;">Newton, 1704</div>
+                    <div style="font-size: 24px; color: black; line-height: 1.4;">Opticks separated light into discrete colors, further fragmenting sensory experience</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Community of Practice - Visual Examples -->
+        <div style="position: absolute; top: 2000px; left: 0; right: 0; height: 1000px;">
+            <div style="position: absolute; top: 0; left: 0; right: 0; height: 200px; background: white; display: flex; justify-content: center; align-items: center;">
+                <div style="font-size: 84px; font-weight: 700; color: #6a4c93;">Community of Practice</div>
+            </div>
+            
+            <!-- Author 1 (Left) -->
+            <div style="position: absolute; top: 200px; left: 0; width: 1800px; height: 400px; background: url('anadol1.jpg') center/cover;">
+                <div class="gradient-overlay"></div>
+                <div style="position: absolute; bottom: 40px; left: 40px; right: 40px;">
+                    <div style="font-size: 48px; font-weight: 700; color: white; margin-bottom: 15px;">Refik Anadol - Machine Hallucination (2019)</div>
+                    <div style="font-size: 28px; color: white; line-height: 1.4;">AI-generated multi-sensory environments that challenge traditional sensory boundaries</div>
+                </div>
+            </div>
+            
+            <!-- Author 2 (Right) -->
+            <div style="position: absolute; top: 200px; left: 1800px; width: 1800px; height: 400px; background: url('teamlab1.jpg') center/cover;">
+                <div class="gradient-overlay"></div>
+                <div style="position: absolute; bottom: 40px; left: 40px; right: 40px;">
+                    <div style="font-size: 48px; font-weight: 700; color: white; margin-bottom: 15px;">TeamLab - Borderless (2018)</div>
+                    <div style="font-size: 28px; color: white; line-height: 1.4;">Immersive digital art installations that create unified sensory experiences</div>
+                </div>
+            </div>
+            
+            <!-- Author 3 (Bottom Left) -->
+            <div style="position: absolute; top: 600px; left: 0; width: 1800px; height: 400px; background: url('rafael2.jpg') center/cover;">
+                <div class="gradient-overlay"></div>
+                <div style="position: absolute; bottom: 40px; left: 40px; right: 40px;">
+                    <div style="font-size: 48px; font-weight: 700; color: white; margin-bottom: 15px;">Rafael Lozano-Hemmer - Pulse Room (2006)</div>
+                    <div style="font-size: 28px; color: white; line-height: 1.4;">Interactive installations that use computational systems to create embodied sensory experiences</div>
+                </div>
+            </div>
+            
+            <!-- Author 4 (Bottom Right) -->
+            <div style="position: absolute; top: 600px; left: 1800px; width: 1800px; height: 400px; background: url('Ryoji-Ikeda_HIROSAKI-MOCA-09_Photo-Takeshi-Asano-1024x654.jpg') center/cover;">
+                <div class="gradient-overlay"></div>
+                <div style="position: absolute; bottom: 40px; left: 40px; right: 40px;">
+                    <div style="font-size: 48px; font-weight: 700; color: white; margin-bottom: 15px;">Ryoji Ikeda - Data-verse (2019)</div>
+                    <div style="font-size: 28px; color: white; line-height: 1.4;">Data-driven art that translates abstract information into visceral sensory experiences</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Visual Representation Section -->
+        <div style="position: absolute; top: 3000px; left: 0; right: 0; height: 1000px;">
+            <div style="position: absolute; top: 0; left: 0; right: 0; height: 200px; background: white; display: flex; justify-content: center; align-items: center;">
+                <div style="font-size: 84px; font-weight: 700; color: #6a4c93;">Visual Representation</div>
+            </div>
+            
+            <!-- Visual elements -->
+            <div style="position: absolute; top: 200px; left: 0; right: 0; height: 600px; display: flex; justify-content: space-around; align-items: center; padding: 40px;">
+                <div style="width: 1000px; height: 600px; background: url('SensorialSynestheticWheelLucaMaroni.png') center/contain; background-repeat: no-repeat; background-color: white; position: relative;">
+                </div>
+                
+                <div style="width: 1000px; height: 600px; background: url('ecosophy.webp') center/contain; background-repeat: no-repeat; background-color: white; position: relative;">
+                </div>
+                
+                <div style="width: 1000px; height: 600px; background: url('9 steps.png') center/contain; background-repeat: no-repeat; background-color: white; position: relative;">
+                </div>
+            </div>
+        </div>
+
+        <!-- Computational Experiments - Visual Representation -->
+        <div style="position: absolute; top: 4000px; left: 0; right: 0; height: 1000px;">
+            <div style="position: absolute; top: 0; left: 0; right: 0; height: 150px; background: white; display: flex; justify-content: center; align-items: center;">
+                <div style="font-size: 84px; font-weight: 700; color: #6a4c93;">Computational Design Experiments</div>
+            </div>
+            
+            <!-- Hear Textures Section -->
+            <div style="position: absolute; top: 150px; left: 0; width: 1800px; height: 850px; display: flex; flex-direction: column; justify-content: flex-start; align-items: center; text-align: center; padding-top: 40px;">
+                <div style="font-size: 72px; font-weight: 700; color: #6a4c93; margin-bottom: 30px;">Hear Textures</div>
+                <div style="font-size: 32px; color: #333; line-height: 1.4; max-width: 1400px; margin-bottom: 40px;">
+                    Amethyst Sound Machine - Interactive crystals generating soothing tones
+                </div>
+                <div style="width: 100%; height: 600px; background: url('amethystsoundmachine.png') center/contain; background-repeat: no-repeat; background-color: white;"></div>
+            </div>
+            
+            <!-- Taste Colors Section -->
+            <div style="position: absolute; top: 150px; left: 1800px; width: 1800px; height: 850px; display: flex; flex-direction: column; justify-content: flex-start; align-items: center; text-align: center; padding-top: 40px;">
+                <div style="font-size: 72px; font-weight: 700; color: #6a4c93; margin-bottom: 30px;">Taste Colors</div>
+                <div style="font-size: 32px; color: #333; line-height: 1.4; max-width: 1400px; margin-bottom: 40px;">
+                    RGB color analysis maps to complex taste profiles through algorithmic layering
+                </div>
+                <div style="width: 100%; height: 600px; background: url('computationaltaste.png') center/contain; background-repeat: no-repeat; background-color: white;"></div>
+            </div>
+        </div>
+
+        <!-- Research & Capstone Outline Section -->
+        <div style="position: absolute; top: 5000px; left: 0; right: 0; height: 2200px;">
+            <div style="position: absolute; top: 0; left: 0; right: 0; height: 200px; background: white; display: flex; justify-content: center; align-items: center;">
+                <div style="font-size: 84px; font-weight: 700; color: #6a4c93;">Research & Capstone Outline</div>
+            </div>
+            
+            <!-- Research Network Section (Left) -->
+            <div style="position: absolute; top: 200px; left: 0; width: 1800px;">
+                <div style="font-size: 72px; font-weight: 700; color: #6a4c93; text-align: center;">Research Network</div>
+                <div style="font-size: 32px; color: #333; line-height: 1.4; max-width: 1400px; margin: 0 auto; text-align: center;">
+                    Interdisciplinary connections across computational design, sensory studies, and interactive media
+                </div>
+                <img src="researchandmethodsnetwork.png" style="width: 100%; height: auto; display: block;">
+            </div>
+            
+            <!-- Capstone Project Section (Right) -->
+            <div style="position: absolute; top: 200px; left: 1800px; width: 1800px;">
+                <div style="font-size: 72px; font-weight: 700; color: #6a4c93; text-align: center;">Capstone Project</div>
+                <div style="font-size: 32px; color: #333; line-height: 1.4; max-width: 1400px; margin: 0 auto; text-align: center;">
+                    Advanced multi-sensory computational design system for embodied experience
+                </div>
+                <img src="capstone.png" style="width: 100%; height: auto; display: block;">
+            </div>
+        </div>
+
+        <!-- Final Question Section -->
+        <div style="position: absolute; top: 6400px; left: 0; right: 0; height: 800px; background: linear-gradient(135deg, #6a4c93, #8b5cf6); display: flex; justify-content: center; align-items: center; padding: 100px;">
+            <div style="text-align: center; color: white; max-width: 3000px;">
+                <div style="font-size: 64px; font-weight: 700; line-height: 1.6; margin-bottom: 40px;">
+                    "Embedded is a question, namely, whether there is an oppositional space to the computable, and if there is such a thing as incomputable qualities, ideas, or experiences. And perhaps we intuitively know the answer—yes—but how do we capture what's ineffable, and what's incomputable?"
+                </div>
+                <div style="font-size: 32px; font-weight: 500; font-style: italic;">
+                    — Khan, Nora N. 2022. Mirror Stage: Between Computability and Its Opposite. HOLO 3.
+                </div>
+            </div>
+        </div>
+
+        <!-- Final Space Section -->
+        <div style="position: absolute; top: 7200px; left: 0; right: 0; height: 400px; background: white;">
+        </div>
+    </div>
+
+    <script>
+        function downloadPoster() {
+            const container = document.getElementById('poster-container');
+            
+            // Create a canvas with the same dimensions
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = 3600;
+            canvas.height = 7200;
+            
+            // Use html2canvas to capture the poster
+            html2canvas(container, {
+                width: 3600,
+                height: 7200,
+                scale: 1,
+                useCORS: true,
+                allowTaint: true
+            }).then(function(canvas) {
+                // Convert to blob and download
+                canvas.toBlob(function(blob) {
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = 'sensing-senses-poster.png';
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    URL.revokeObjectURL(url);
+                });
+            });
+        }
+    </script>
+    
+    <!-- html2canvas library for converting HTML to canvas -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</body>
+</html> 

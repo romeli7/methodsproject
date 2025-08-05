@@ -1,0 +1,1825 @@
+<!DOCTYPE html>
+<!-- This tells the browser this is an HTML5 document -->
+<html lang="en">
+<!-- The html tag is the root element that contains everything on the page -->
+<!-- lang="en" tells the browser this page is in English -->
+
+<head>
+  <!-- The head section contains information about the page, not visible content -->
+  
+  <!-- Set the character encoding to UTF-8 (supports special characters and emojis) -->
+  <meta charset="UTF-8">
+  
+  <!-- This is the title that appears in the browser tab -->
+  <title>Affective Architecture</title>
+  
+  <!-- Inline CSS for styling the page -->
+  <style>
+    /* Import Google Fonts */
+    /* This loads the Inter font family from Google's servers - more modern and readable */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+    /* ============================================================================
+       BASIC PAGE STYLING
+       ============================================================================ */
+
+    /* Style the entire body of the webpage */
+    body {
+      font-family: 'Inter', sans-serif;   /* Set the font to Inter, with sans-serif as backup */
+      background-color: #ffffff;          /* Set background color to white */
+      color: #1a1a1a;                     /* Set text color to very dark gray */
+      margin: 0;                          /* Remove default spacing around the body */
+      padding: 0;                         /* Remove default internal spacing */
+      line-height: 1.6;                   /* Reduced line height for more compact text */
+    }
+
+
+
+    /* ============================================================================
+       HEADER STYLING
+       ============================================================================ */
+
+    /* Style the header section at the top of the page */
+    header {
+      display: flex;                      /* Use flexbox layout for flexible positioning */
+      justify-content: space-between;     /* Spread items evenly across the header */
+      align-items: center;                /* Center items vertically */
+      padding: 20px 30px;                 /* Reduced padding */
+      border-bottom: 1px solid #e5e5e5;   /* Light gray border */
+      font-size: 14px;                    /* Reduced font size */
+      color: #1a1a1a;                     /* Dark text color */
+      background: #ffffff;                /* White background */
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04); /* Subtle shadow */
+      position: sticky;                   /* Make header stick to top */
+      top: 0;                             /* Stick to top of viewport */
+      z-index: 100;                       /* Ensure header stays above content */
+      font-family: 'Inter', sans-serif;   /* Same font as website content */
+    }
+
+    /* Style the left section of the header (institution name) */
+    header .left {
+      color: #1a1a1a;                     /* Set text color to dark */
+    }
+
+    /* Style the center section of the header (main title) */
+    header .center {
+      font-weight: 400;                   /* Set font weight to normal (not bold) */
+      text-align: center;                 /* Center the text horizontally */
+      color: #1a1a1a;                     /* Set text color to dark */
+    }
+
+    /* Style the span element inside the center section (subtitle) */
+    header .center span {
+      font-size: 12px;                    /* Make this text smaller (12 pixels) */
+      color: #1a1a1a;                     /* Set text color to dark */
+    }
+
+    /* Style links in the right section of the header */
+    header .right, header .right a {
+      color: #1a1a1a;                     /* Set link color to dark */
+      text-decoration: none;              /* Remove the underline from links */
+      font-weight: 400;                   /* Set font weight to normal */
+    }
+
+    /* ============================================================================
+       MAIN CONTENT AREA
+       ============================================================================ */
+
+    /* Style the main content area */
+    main {
+      margin: 50px 30px;                  /* Reduced margins */
+      padding: 0;                         /* No additional padding */
+    }
+
+    /* ============================================================================
+       PROJECT TITLE STYLES
+       ============================================================================ */
+
+    /* Style the project year/date */
+    .project-meta {
+      font-size: 14px;                    /* Set font size to 14 pixels */
+      color: #999;                        /* Set text color to light gray */
+      margin-bottom: 8px;                 /* Add 8 pixels of space below this element */
+    }
+
+    /* Style the main project title (regular sections) */
+    .project-title {
+      font-size: 20px;                    /* Reduced font size */
+      font-weight: 600;                   /* Set font weight to semi-bold */
+      margin-bottom: 18px;                /* Reduced margin */
+      margin-top: 35px;                   /* Reduced margin */
+      color: #1a1a1a;                     /* Set text color to dark gray */
+      line-height: 1.3;                   /* Tighter line height for titles */
+      letter-spacing: -0.01em;            /* Slightly tighter letter spacing */
+      border-left: 3px solid #6a4c93;     /* Smaller purple accent line */
+      padding-left: 15px;                 /* Reduced space for accent line */
+      scroll-margin-top: 80px;            /* Reduced scroll margin */
+    }
+
+    /* Style for the main title (Research Foundations + Project Outline) */
+    .project-title-main {
+      font-size: 24px;                    /* Reduced font size */
+      font-weight: 600;                   /* Set font weight to semi-bold */
+      margin-bottom: 30px;                /* Reduced margin */
+      margin-top: 0;                      /* No top margin since it's the first element */
+      color: #1a1a1a;                     /* Set text color to dark gray */
+      line-height: 1.2;                   /* Tighter line height for titles */
+      letter-spacing: -0.02em;            /* Slightly tighter letter spacing */
+      white-space: nowrap;                /* Prevent line breaks */
+      overflow: hidden;                   /* Hide overflow if needed */
+      text-overflow: ellipsis;            /* Add ellipsis if text is too long */
+      text-align: center;                 /* Center the title */
+    }
+
+    /* Style for Network Graph Visualization title (subsection) */
+    .project-title-subsection {
+      font-size: 18px;                    /* Set font size to 18 pixels (smaller than regular titles) */
+      font-weight: 400;                   /* Set font weight to normal (not bold) */
+      margin-bottom: 4px;                 /* Add 4 pixels of space below this element */
+      margin-top: 20px;                   /* Add 20 pixels of space above this element */
+      color: #666;                        /* Set text color to medium gray */
+      margin-left: 20px;                  /* Add 20 pixels of space to the left (indentation) */
+    }
+
+    /* Style the project subtitle */
+    .project-subtitle {
+      font-size: 16px;                    /* Set font size to 16 pixels */
+      color: #999;                        /* Set text color to light gray */
+      margin-bottom: 24px;                /* Add 24 pixels of space below this element */
+    }
+
+    /* ============================================================================
+       CONTENT STYLING
+       ============================================================================ */
+
+    /* Style for section content (Lorem ipsum text) */
+    .section-content {
+      margin-left: 0;                     /* No left margin since titles have padding */
+      margin-bottom: 25px;                /* Reduced margin */
+      font-size: 14px;                    /* Reduced font size */
+      line-height: 1.6;                   /* Reduced line height */
+      color: #2a2a2a;                     /* Set text color to dark gray */
+      font-weight: 400;                   /* Normal font weight for readability */
+    }
+
+    /* Style for experiment content */
+    .experiment-content {
+      background: linear-gradient(135deg, #f8f7ff 0%, #ffffff 100%);
+      border: 2px solid #6a4c93;
+      border-radius: 12px;
+      padding: 20px;
+      margin: 20px 0;
+      box-shadow: 0 6px 20px rgba(106, 76, 147, 0.15);
+    }
+
+    .experiment-section {
+      margin-bottom: 18px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid #e8e8e8;
+    }
+
+    .experiment-section:last-of-type {
+      border-bottom: none;
+      margin-bottom: 20px;
+    }
+
+    .experiment-section h3 {
+      font-size: 15px;
+      font-weight: 600;
+      color: #6a4c93;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .experiment-section h3::before {
+      content: '💜';
+      font-size: 16px;
+    }
+
+    .experiment-section p {
+      font-size: 13px;
+      line-height: 1.5;
+      color: #2a2a2a;
+      margin: 0;
+    }
+
+    .experiment-link {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .experiment-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, #6a4c93, #8b5cf6);
+      color: white !important;
+      padding: 12px 20px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 13px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(106, 76, 147, 0.3);
+    }
+
+    .experiment-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(106, 76, 147, 0.4);
+      background: linear-gradient(135deg, #8b5cf6, #6a4c93);
+    }
+
+    .experiment-button .arrow {
+      font-size: 18px;
+      transition: transform 0.3s ease;
+      color: white !important;
+    }
+
+    .experiment-button:hover .arrow {
+      transform: translateX(5px);
+    }
+
+
+
+    /* Style for experiment description */
+    .experiment-description {
+      margin-bottom: 15px;                /* Reduced space */
+      font-style: italic;                 /* Italic description */
+      color: #6a4c93;                     /* Purple color matching theme */
+      font-weight: 500;                   /* Medium weight */
+      font-size: 13px;                    /* Reduced font size */
+    }
+
+    /* Style for links in section content */
+    .section-content a {
+      color: #6a4c93;                     /* Purple color matching the experiment theme */
+      text-decoration: none;              /* Remove underline */
+      font-weight: 500;                   /* Slightly bold */
+      transition: color 0.3s ease;        /* Smooth color transition on hover */
+      font-size: 13px;                    /* Smaller font size */
+    }
+
+    .section-content a:hover {
+      color: #8b5cf6;                     /* Lighter purple on hover */
+      text-decoration: underline;         /* Add underline on hover */
+    }
+
+    /* ============================================================================
+       INTERSECTING CIRCLES STYLING
+       ============================================================================ */
+
+    /* Container for the intersecting circles */
+    .intersecting-circles {
+      position: relative;
+      width: 100%;
+      height: 450px;
+      margin: 25px 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Base circle styling */
+    .circle {
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+      box-sizing: border-box;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .circle:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+
+    /* Individual circle colors and positions */
+    .circle.computational {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      top: 60px;
+      left: 60px;
+      z-index: 1;
+    }
+
+    .circle.psychology {
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      top: 60px;
+      right: 60px;
+      z-index: 1;
+    }
+
+    .circle.architecture {
+      background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      bottom: 60px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+    }
+
+
+
+    /* Circle content styling */
+    .circle-content {
+      color: white;
+      font-size: 12px;
+      line-height: 1.3;
+    }
+
+    .circle-content h3 {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    }
+
+    .circle-content p {
+      font-size: 10px;
+      opacity: 0.95;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    }
+
+    /* Responsive design for circles */
+    @media (max-width: 768px) {
+      .intersecting-circles {
+        height: 400px;
+        flex-direction: column;
+        gap: 15px;
+      }
+      
+      .circle {
+        position: relative;
+        width: 200px;
+        height: 200px;
+        top: auto;
+        left: auto;
+        right: auto;
+        bottom: auto;
+        transform: none;
+      }
+      
+      .center-point {
+        position: relative;
+        transform: none;
+        top: auto;
+        left: auto;
+        margin: 15px auto;
+      }
+    }
+
+    /* ============================================================================
+       TIMELINE STYLING
+       ============================================================================ */
+
+    /* Timeline container */
+    .timeline-container {
+      width: 100%;
+      overflow-x: auto;
+      padding: 15px 0;
+    }
+
+    /* Main timeline */
+    .timeline {
+      display: flex;
+      min-width: 1200px;
+      position: relative;
+      padding: 25px 0;
+    }
+
+    /* Timeline line */
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #6a4c93, #8b5cf6, #6a4c93);
+      transform: translateY(-50%);
+      border-radius: 2px;
+    }
+
+    /* Timeline items */
+    .timeline-item {
+      flex: 1;
+      position: relative;
+      padding: 0 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Timeline dots */
+    .timeline-dot {
+      width: 20px;
+      height: 20px;
+      background: linear-gradient(135deg, #6a4c93, #8b5cf6);
+      border-radius: 50%;
+      border: 4px solid #ffffff;
+      box-shadow: 0 4px 12px rgba(106, 76, 147, 0.3);
+      z-index: 2;
+      margin-bottom: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .timeline-item:hover .timeline-dot {
+      transform: scale(1.2);
+      box-shadow: 0 6px 20px rgba(106, 76, 147, 0.4);
+    }
+
+    /* Timeline content */
+    .timeline-content {
+      background: #ffffff;
+      border-radius: 10px;
+      padding: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      text-align: center;
+      max-width: 150px;
+      transition: all 0.3s ease;
+      border: 1px solid #f0f0f0;
+    }
+
+    .timeline-item:hover .timeline-content {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+
+    /* Timeline dates */
+    .timeline-date {
+      font-size: 10px;
+      font-weight: 600;
+      color: #6a4c93;
+      margin-bottom: 6px;
+      letter-spacing: 0.5px;
+    }
+
+    /* Timeline titles */
+    .timeline-content h3 {
+      font-size: 13px;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+
+    /* Timeline descriptions */
+    .timeline-content p {
+      font-size: 11px;
+      line-height: 1.4;
+      color: #666;
+      margin: 0;
+    }
+
+    /* Responsive timeline */
+    @media (max-width: 768px) {
+      .timeline {
+        flex-direction: column;
+        min-width: auto;
+        padding: 20px 0;
+      }
+      
+      .timeline::before {
+        left: 50%;
+        top: 0;
+        bottom: 0;
+        width: 3px;
+        height: auto;
+        transform: translateX(-50%);
+      }
+      
+      .timeline-item {
+        flex: none;
+        margin-bottom: 30px;
+        padding: 0;
+      }
+      
+      .timeline-content {
+        max-width: 100%;
+        margin-top: 20px;
+      }
+    }
+
+    /* ============================================================================
+       ARGUMENT DIAGRAM STYLING
+       ============================================================================ */
+
+    /* Main argument diagram container */
+    .argument-diagram {
+      width: 100%;
+      margin: 30px 0;
+    }
+
+    /* Argument flow section */
+    .argument-flow {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 40px;
+      gap: 30px;
+    }
+
+    /* Argument boxes */
+    .argument-box {
+      flex: 1;
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      border: 2px solid transparent;
+      transition: all 0.3s ease;
+    }
+
+    .argument-box.current {
+      border-color: #e5e5e5;
+      background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    }
+
+    .argument-box.proposed {
+      border-color: #6a4c93;
+      background: linear-gradient(135deg, #f8f7ff 0%, #ffffff 100%);
+    }
+
+    .argument-box:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+    }
+
+    /* Box headers */
+    .box-header {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      text-align: center;
+      color: #1a1a1a;
+    }
+
+    /* Priority lists */
+    .priority-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .priority-item {
+      padding: 10px 15px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .priority-item.primary {
+      background: linear-gradient(135deg, #6a4c93, #8b5cf6);
+      color: white;
+      box-shadow: 0 2px 8px rgba(106, 76, 147, 0.3);
+    }
+
+    .priority-item.secondary {
+      background: #f0f0f0;
+      color: #666;
+      border: 1px solid #e0e0e0;
+    }
+
+    .priority-item.tertiary {
+      background: #f8f8f8;
+      color: #999;
+      border: 1px solid #e8e8e8;
+      font-size: 13px;
+    }
+
+    /* Challenge arrow */
+    .challenge-arrow {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      min-width: 120px;
+    }
+
+    .arrow-line {
+      width: 80px;
+      height: 3px;
+      background: linear-gradient(90deg, #6a4c93, #8b5cf6);
+      border-radius: 2px;
+      position: relative;
+    }
+
+    .arrow-head {
+      width: 0;
+      height: 0;
+      border-left: 12px solid #8b5cf6;
+      border-top: 8px solid transparent;
+      border-bottom: 8px solid transparent;
+      position: absolute;
+      right: -10px;
+      top: -6px;
+    }
+
+    .challenge-text {
+      font-size: 12px;
+      font-weight: 700;
+      color: #6a4c93;
+      margin-top: 15px;
+      letter-spacing: 1px;
+    }
+
+    /* Evidence section */
+    .evidence-section {
+      margin-bottom: 40px;
+    }
+
+    .evidence-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    .evidence-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .evidence-item {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      border-left: 4px solid #6a4c93;
+      transition: all 0.3s ease;
+    }
+
+    .evidence-item:hover {
+      transform: translateX(5px);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+    }
+
+    .evidence-icon {
+      font-size: 24px;
+      flex-shrink: 0;
+    }
+
+    .evidence-text {
+      font-size: 15px;
+      color: #2a2a2a;
+      font-weight: 500;
+    }
+
+    /* Impact section */
+    .impact-section {
+      margin-top: 30px;
+    }
+
+    .impact-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    .impact-flow {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .impact-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+      min-width: 120px;
+      transition: all 0.3s ease;
+    }
+
+    .impact-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    }
+
+    .impact-icon {
+      font-size: 28px;
+    }
+
+    .impact-text {
+      font-size: 14px;
+      font-weight: 500;
+      color: #2a2a2a;
+      text-align: center;
+    }
+
+    /* Responsive design for argument diagram */
+    @media (max-width: 768px) {
+      .argument-flow {
+        flex-direction: column;
+        gap: 20px;
+      }
+      
+      .challenge-arrow {
+        transform: rotate(90deg);
+        min-width: auto;
+        min-height: 80px;
+      }
+      
+      .evidence-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .impact-flow {
+        justify-content: center;
+      }
+    }
+
+    /* ============================================================================
+       VISUAL REPRESENTATION STYLING
+       ============================================================================ */
+
+    /* Main container */
+    .visual-language-container {
+      width: 100%;
+      margin: 30px 0;
+    }
+
+    /* Visual Elements Grid */
+    .visual-elements {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-bottom: 50px;
+    }
+
+    .element-card {
+      background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 6px 25px rgba(0,0,0,0.08);
+      border: 2px solid #e8e8e8;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .element-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+    }
+
+    .element-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+      border-color: #6a4c93;
+    }
+
+    .element-visual {
+      height: 120px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Gradient Demo */
+    .gradient-demo {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      position: relative;
+    }
+
+    .gradient-layer {
+      position: absolute;
+      opacity: 0.7;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    .gradient-layer:nth-child(1) {
+      width: 80px;
+      height: 60px;
+      background: linear-gradient(45deg, #f093fb, #f5576c);
+      top: 20px;
+      left: 20px;
+      border-radius: 40px 20px 40px 20px;
+      animation-delay: 0s;
+    }
+
+    .gradient-layer:nth-child(2) {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(45deg, #4facfe, #00f2fe);
+      top: 40px;
+      right: 30px;
+      border-radius: 50%;
+      animation-delay: 1s;
+    }
+
+    .gradient-layer:nth-child(3) {
+      width: 70px;
+      height: 40px;
+      background: linear-gradient(45deg, #6a4c93, #8b5cf6);
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 20px 40px 20px 40px;
+      animation-delay: 2s;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    /* Geometric Demo */
+    .geometric-demo {
+      background: #f8f9fa;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      padding: 20px;
+    }
+
+    .geo-shape {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #6a4c93, #8b5cf6);
+      animation: rotate 6s linear infinite;
+    }
+
+    .geo-shape:nth-child(1) {
+      clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+      animation-delay: 0s;
+    }
+
+    .geo-shape:nth-child(2) {
+      clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+      background: linear-gradient(135deg, #f093fb, #f5576c);
+      animation-delay: 2s;
+    }
+
+    .geo-shape:nth-child(3) {
+      clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+      background: linear-gradient(135deg, #4facfe, #00f2fe);
+      animation-delay: 4s;
+    }
+
+    @keyframes rotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Light Demo */
+    .light-demo {
+      background: #1a1a1a;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .light-core {
+      width: 30px;
+      height: 30px;
+      background: radial-gradient(circle, #ffffff, #f0f0f0);
+      border-radius: 50%;
+      box-shadow: 0 0 20px rgba(255,255,255,0.8);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    .light-ray {
+      position: absolute;
+      width: 3px;
+      height: 60px;
+      background: linear-gradient(to top, transparent, #ffffff, transparent);
+      animation: ray 3s ease-in-out infinite;
+    }
+
+    .light-ray:nth-child(1) {
+      transform: rotate(0deg);
+      animation-delay: 0s;
+    }
+
+    .light-ray:nth-child(2) {
+      transform: rotate(120deg);
+      animation-delay: 1s;
+    }
+
+    .light-ray:nth-child(3) {
+      transform: rotate(240deg);
+      animation-delay: 2s;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.1); opacity: 0.8; }
+    }
+
+    @keyframes ray {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 1; }
+    }
+
+    .element-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 10px;
+    }
+
+    .element-desc {
+      font-size: 14px;
+      color: #666;
+      line-height: 1.5;
+    }
+
+    /* Aesthetic Principles */
+    .aesthetic-principles {
+      margin-bottom: 50px;
+    }
+
+    .principle-section {
+      margin-bottom: 40px;
+    }
+
+    .principle-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    .principle-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .principle-item {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      background: linear-gradient(135deg, #ffffff 0%, #fafafa 100%);
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 3px 15px rgba(0,0,0,0.06);
+      border: 2px solid #f0f0f0;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .principle-item::after {
+      content: '';
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 8px;
+      height: 8px;
+      background: #6a4c93;
+      border-radius: 50%;
+      opacity: 0;
+      transition: all 0.3s ease;
+    }
+
+    .principle-item:hover {
+      transform: translateX(8px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      border-color: #6a4c93;
+    }
+
+    .principle-item:hover::after {
+      opacity: 1;
+      transform: translateY(-50%) scale(1.5);
+    }
+
+    .principle-icon {
+      font-size: 24px;
+      flex-shrink: 0;
+    }
+
+    .principle-text {
+      font-size: 15px;
+      color: #2a2a2a;
+      font-weight: 500;
+    }
+
+    /* Philosophy Flow */
+    .philosophy-flow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .philosophy-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+      background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+      padding: 25px;
+      border-radius: 18px;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+      min-width: 160px;
+      transition: all 0.4s ease;
+      border: 2px solid #f0f0f0;
+      position: relative;
+    }
+
+    .philosophy-step::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: linear-gradient(45deg, #667eea, #764ba2, #f093fb, #667eea);
+      border-radius: 20px;
+      z-index: -1;
+      opacity: 0;
+      transition: all 0.4s ease;
+    }
+
+    .philosophy-step:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+      border-color: transparent;
+    }
+
+    .philosophy-step:hover::before {
+      opacity: 1;
+    }
+
+    .philosophy-step.result {
+      background: linear-gradient(135deg, #f8f7ff 0%, #ffffff 100%);
+      border: 3px solid #6a4c93;
+      box-shadow: 0 6px 25px rgba(106, 76, 147, 0.2);
+    }
+
+    .step-number {
+      width: 30px;
+      height: 30px;
+      background: linear-gradient(135deg, #6a4c93, #8b5cf6);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .step-text {
+      font-size: 14px;
+      font-weight: 500;
+      color: #2a2a2a;
+      text-align: center;
+    }
+
+    .philosophy-arrow {
+      font-size: 20px;
+      font-weight: 600;
+      color: #6a4c93;
+    }
+
+    /* Community Context */
+    .community-context {
+      margin-top: 30px;
+    }
+
+    .context-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    .community-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .community-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      background: linear-gradient(135deg, #ffffff 0%, #fafafa 100%);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+      transition: all 0.4s ease;
+      text-align: center;
+      border: 2px solid #f0f0f0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .community-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(106, 76, 147, 0.1), transparent);
+      transition: all 0.6s ease;
+    }
+
+    .community-item:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+      border-color: #6a4c93;
+    }
+
+    .community-item:hover::before {
+      left: 100%;
+    }
+
+    .community-icon {
+      font-size: 32px;
+    }
+
+    .community-name {
+      font-size: 16px;
+      font-weight: 600;
+      color: #1a1a1a;
+    }
+
+    .community-focus {
+      font-size: 14px;
+      color: #6a4c93;
+      font-weight: 500;
+    }
+
+    /* Responsive design for visual representation */
+    @media (max-width: 768px) {
+      .visual-elements {
+        grid-template-columns: 1fr;
+      }
+      
+      .principle-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .philosophy-flow {
+        flex-direction: column;
+        gap: 15px;
+      }
+      
+      .community-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+
+
+    /* ============================================================================
+       NETWORK GRAPH STYLING
+       ============================================================================ */
+
+    /* Style the D3 container for the network graph */
+    #d3-container-2 {
+      width: 100%;                        /* Make the container take full width */
+      height: 400px;                      /* Set the height to 400 pixels */
+      margin: 20px 0;                     /* Add 20px top/bottom margin */
+      margin-left: 20px;                  /* Add 20px left margin (indentation) */
+      border: 1px solid #ddd;             /* Add a light gray border around the container */
+      border-radius: 4px;                 /* Add slightly rounded corners */
+      background-color: #f0f0f0;         /* Set background color to light gray */
+    }
+
+    /* Style tooltips (popup information when hovering over graph nodes) */
+    .tooltip {
+      position: absolute;                  /* Position the tooltip absolutely so we can place it anywhere */
+      background: rgba(0, 0, 0, 0.8);    /* Semi-transparent black background */
+      color: white;                       /* White text color */
+      padding: 8px;                       /* Add 8px of spacing inside the tooltip */
+      border-radius: 4px;                 /* Add slightly rounded corners */
+      font-size: 12px;                    /* Small font size */
+      pointer-events: none;               /* Don't let the tooltip interfere with mouse events */
+      opacity: 0;                         /* Start invisible */
+    }
+
+    /* ============================================================================
+       COMMUNITY OF PRACTICE IMAGES STYLING
+       ============================================================================ */
+
+    /* Style the image container for each practitioner */
+    .practitioner-images {
+      display: flex;                      /* Use flexbox to arrange images horizontally */
+      flex-direction: row;                /* Ensure images are in a row */
+      gap: 1px;                           /* Add 1px space between images */
+      margin: 8px 0;                      /* Add 8px top/bottom margin */
+      margin-left: 20px;                  /* Add 20px left margin (indentation) */
+      width: calc(100% - 40px);           /* Take width minus left and right margins */
+      align-items: center;                /* Center images vertically */
+      justify-content: space-between;     /* Distribute images evenly across the space */
+      flex-wrap: nowrap;                  /* Prevent wrapping to new line */
+    }
+
+    /* Style individual images */
+    .practitioner-images img {
+      width: 33% !important;              /* Each image takes 1/3 of the width */
+      height: 180px !important;            /* Increased height */
+      object-fit: contain;                /* Show full image without cutting parts */
+      border-radius: 0;                   /* No rounded corners */
+      border: none;                       /* No border */
+      flex-shrink: 0 !important;          /* Prevent images from shrinking */
+      flex-grow: 0 !important;            /* Don't grow, stay at 33% width */
+      max-width: 33% !important;          /* Maximum width is 33% */
+      max-height: 180px !important;        /* Increased maximum height */
+      min-width: 33% !important;          /* Minimum width is 33% */
+      min-height: 180px !important;        /* Increased minimum height */
+      background-color: transparent;      /* No background */
+    }
+
+    /* ============================================================================
+       TABLE OF CONTENTS STYLING
+       ============================================================================ */
+
+    .contents-section {
+      background: linear-gradient(135deg, #f8f7ff 0%, #ffffff 100%);
+      border: 2px solid #6a4c93;
+      border-radius: 10px;
+      padding: 15px;
+      margin: 25px 0;
+      box-shadow: 0 4px 20px rgba(106, 76, 147, 0.1);
+    }
+
+    .contents-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 12px;
+      text-align: center;
+      border-bottom: 2px solid #6a4c93;
+      padding-bottom: 6px;
+    }
+
+    .contents-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      justify-content: center;
+    }
+
+    .contents-link {
+      display: inline-block;
+      padding: 6px 10px;
+      background: #ffffff;
+      border: 1px solid #e0e0e0;
+      border-radius: 5px;
+      color: #1a1a1a;
+      text-decoration: none;
+      font-size: 11px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+    }
+
+    .contents-link:hover {
+      background: linear-gradient(135deg, #6a4c93, #8b5cf6);
+      color: white;
+      transform: translateY(-1px);
+      box-shadow: 0 3px 10px rgba(106, 76, 147, 0.3);
+      border-color: #6a4c93;
+    }
+
+    /* Responsive design for contents */
+    @media (max-width: 768px) {
+      .contents-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+      }
+      
+      .contents-link {
+        font-size: 10px;
+        padding: 5px 8px;
+        width: 100%;
+        text-align: center;
+      }
+    }
+
+    /* ============================================================================
+       RESPONSIVE DESIGN (for mobile devices)
+       ============================================================================ */
+
+    /* Mobile devices (screens smaller than 768px) */
+    @media (max-width: 768px) {
+      main {
+        margin: 40px auto;                /* Reduce top/bottom margin for mobile */
+        padding: 0 15px;                  /* Reduce left/right padding for mobile */
+      }
+      
+      header {
+        padding: 16px 20px;               /* Reduce header padding for mobile */
+        flex-direction: column;           /* Stack header items vertically on mobile */
+        gap: 10px;                        /* Add space between header items */
+      }
+      
+      #d3-container-2 {
+        height: 300px;                    /* Reduce graph height for mobile */
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- The body contains all the visible content that users will see on the page -->
+  
+
+  
+  <!-- Header section at the top of the page -->
+  <header>
+    <!-- Left side of header - institution name -->
+    <div class="left">Columbia GSAPP</div>
+    
+    <!-- Center of header - main title and subtitle -->
+    <div class="center">
+      Computational Design Practices<br>
+      <!-- <br> creates a line break, moving the next text to a new line -->
+      <span>Colloquium 1 Summer 2025</span>
+      <!-- span is an inline element that groups text without creating a new line -->
+    </div>
+    
+    <!-- Right side of header - student name -->
+    <div class="right">Romayssae El Idrissi</div>
+  </header>
+
+  <!-- Main content area -->
+  <main>
+    <!-- Main title of the research project -->
+    <div class="project-title-main">Sensing Space: Color, Form, and Light in Affective Architecture</div>
+    
+    <!-- Table of Contents -->
+    <div class="contents-section">
+      <div class="contents-title">Contents</div>
+      <div class="contents-links">
+        <a href="#research-questions" class="contents-link">Research Questions</a>
+        <a href="#keywords" class="contents-link">Keywords</a>
+        <a href="#intersecting-fields" class="contents-link">3 Intersecting Fields</a>
+        <a href="#historical-lineage" class="contents-link">Historical Lineage</a>
+        <a href="#community-practice" class="contents-link">My Community of Practice</a>
+        <a href="#situated-technology" class="contents-link">Situated Technology</a>
+        <a href="#methods" class="contents-link">Methods</a>
+        <a href="#computational-experiments" class="contents-link">Computational Design Experiments</a>
+        <a href="#visual-representation" class="contents-link">Visual Representation</a>
+        <a href="#rhetorical-argument" class="contents-link">Rhetorical Argument</a>
+        <a href="#capstone-outline" class="contents-link">Brief Outline of a Potential Capstone Project</a>
+        <a href="#challenges" class="contents-link">The Challenge</a>
+      </div>
+    </div>
+
+    <!-- Research question section -->
+    <div id="research-questions" class="project-title">Research questions</div>
+    <div class="section-content">
+      • How can computational design create architectural spaces that evoke specific emotional states through color, light, and form?<br><br>
+      • What are the ethical implications of using technology to engineer emotional atmospheres in built environments?<br><br>
+      • How do immersive color-light environments affect human perception and emotional experience?<br><br>
+      • What new human-environment relationships emerge when spaces become emotionally responsive?<br><br>
+      • How can affective architecture address mental health and urban wellbeing in digital societies?
+    </div>
+    
+    <!-- Keywords section -->
+    <div id="keywords" class="project-title">Keywords</div>
+    <div class="section-content">
+      • Affective Architecture<br>
+      • Emotional Atmospheres<br>
+      • Computational Color Design<br>
+      • Sensory Immersion<br>
+      • Spatial Psychology<br>
+      • Responsive Environments
+    </div>
+    
+    <!-- Intersecting fields section -->
+    <div id="intersecting-fields" class="project-title">3 Intersecting Fields</div>
+    <div class="section-content">
+      <div class="intersecting-circles">
+        <div class="circle computational">
+          <div class="circle-content">
+            <h3>Computational Design & Interactive Media</h3>
+            <p>Using code and digital tools to prototype and visualize emotional spatial experiences, including real-time responsive systems, generative design algorithms, and interactive installations that adapt to human presence and behavior.</p>
+          </div>
+        </div>
+        <div class="circle psychology">
+          <div class="circle-content">
+            <h3>Color Theory & Psychology</h3>
+            <p>Investigating the emotional and psychological impact of color and light on human perception and mood, drawing from neuroscience, environmental psychology, and phenomenological studies of spatial experience.</p>
+          </div>
+        </div>
+        <div class="circle architecture">
+          <div class="circle-content">
+            <h3>Spatial & Experiential Architecture</h3>
+            <p>Creating physical and virtual environments that evoke affective responses through form, color, and light, bridging the gap between digital simulation and embodied experience in architectural space.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    
+    <!-- Historical lineage section -->
+    <div id="historical-lineage" class="project-title">Historical Lineage</div>
+    <div class="section-content">
+      <div class="timeline-container">
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">1919-1933</div>
+              <h3>Bauhaus Color Theory</h3>
+              <p>Johannes Itten's color theory, Josef Albers' color interactions, and the systematic exploration of color as a fundamental design element in architecture and art.</p>
+            </div>
+          </div>
+          
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">1920s-1960s</div>
+              <h3>Modernist Color Architecture</h3>
+              <p>Le Corbusier's polychromy architecture, De Stijl color theory, and the integration of color as a structural and spatial element in modernist buildings.</p>
+            </div>
+          </div>
+          
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">1950s-1970s</div>
+              <h3>Op Art & Kinetic Art</h3>
+              <p>Bridget Riley's optical illusions, Victor Vasarely's geometric abstractions, and the GRAV group's investigations into dynamic color interactions and viewer perception.</p>
+            </div>
+          </div>
+          
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">1960s-1980s</div>
+              <h3>Light and Space Movement</h3>
+              <p>James Turrell's perceptual installations, Robert Irwin's environmental works, and Dan Flavin's fluorescent light sculptures that transformed space through light and color.</p>
+            </div>
+          </div>
+          
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">1970s-2000s</div>
+              <h3>Phenomenological Architecture</h3>
+              <p>Juhani Pallasmaa's embodied experience theories, Steven Holl's phenomenological approach to light and space, and Peter Zumthor's atmospheric architecture emphasizing sensory perception.</p>
+            </div>
+          </div>
+          
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">1990s-Present</div>
+              <h3>Digital Color & Interactive Media</h3>
+              <p>Early computational art experiments, digital color theory, and the emergence of interactive installations that respond to human presence and behavior.</p>
+            </div>
+          </div>
+          
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">2000s-Present</div>
+              <h3>Contemporary Computational Art</h3>
+              <p>Refik Anadol's AI-driven environments, teamLab's immersive installations, and the rise of machine learning in creating responsive emotional landscapes.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Community of practice section -->
+    <div id="community-practice" class="project-title">My Community of Practice</div>
+    <div class="section-content">
+      This project is situated among a vibrant community of artists, designers, and computational practitioners who explore the intersection of color, light, form, and emotion in immersive environments. These creators use computational tools and spatial design to shape affective atmospheres that engage users sensorially and emotionally. Key figures include:<br><br>
+      
+      • <strong>Liz West</strong>: Known for her striking color-saturated light installations such as <em>Our Colour Reflection</em> and <em>Colour Transfer</em>, West's work uses vivid colored light to create powerful emotional experiences and heighten sensory awareness. Her installations emphasize how color can transform perception within a space, inspiring my focus on emotional color fields. I position my work as a computational extension of her phenomenological approach, using digital tools to create more responsive and adaptive color environments.<br>
+      <div class="practitioner-images">
+        <img src="liz1.jpg" alt="Liz West artwork 1">
+        <img src="liz2.jpg" alt="Liz West artwork 2">
+        <img src="liz3.jpg" alt="Liz West artwork 3">
+      </div><br>
+      
+      • <strong>James Turrell</strong>: A seminal figure in light and space art, Turrell designs immersive perceptual experiences using carefully controlled light and color, exemplified by works like <em>Aten Reign</em> and <em>Ganzfeld</em>. His architectural voids manipulate viewers' sense of space and emotion, demonstrating the profound effect of light and color on atmosphere. My work builds upon his perceptual investigations but introduces computational responsiveness and emotional modeling to create more dynamic, user-adaptive experiences.<br>
+      <div class="practitioner-images">
+        <img src="turrel1.jpg" alt="James Turrell artwork 1">
+        <img src="turrel.webp" alt="James Turrell artwork 2">
+        <img src="turrell.jpg" alt="James Turrell artwork 3">
+      </div><br>
+      
+      • <strong>Olafur Eliasson</strong>: Blending phenomenology and environmental art, Eliasson's projects such as <em>Room for One Colour</em> and <em>Your Uncertain Shadow</em> use shifting monochromatic light and spatial interventions to explore perception and mood. His hybrid approach combining computation, architecture, and sensory experience informs my project's conceptual framework. I extend his environmental consciousness by incorporating real-time emotional feedback and adaptive color systems.<br>
+      <div class="practitioner-images">
+        <img src="olafur.jpg" alt="Olafur Eliasson artwork 1">
+        <img src="olafur2.webp" alt="Olafur Eliasson artwork 2">
+        <img src="olafur3.jpg" alt="Olafur Eliasson artwork 3">
+      </div><br>
+      
+      • <strong>Jenny Sabin Studio</strong>: This design practice creates responsive, data-driven architectural environments such as <em>Lumen</em> and <em>Nanotecture</em>, which use textiles, light, and computational design to produce changing emotional atmospheres. Their work demonstrates the potential for materials and technology to interact dynamically with human emotion. My project shares their interest in responsive environments but focuses specifically on emotional color design rather than structural responsiveness.<br>
+      <div class="practitioner-images">
+        <img src="jenny.jpg" alt="Jenny Sabin Studio artwork 1">
+        <img src="jenny1.jpg" alt="Jenny Sabin Studio artwork 2">
+        <img src="jenny2.jpg" alt="Jenny Sabin Studio artwork 3">
+      </div><br>
+      
+      • <strong>Refik Anadol</strong>: Using machine learning and large-scale data visualization, Anadol's immersive projections like <em>Melting Memories</em> transform architectural spaces into dynamic emotional landscapes, emphasizing the role of data as a medium for affective experience. While I admire his technical sophistication, my work critiques the passive consumption of AI-generated content by creating more interactive, user-controlled emotional environments that prioritize human agency over algorithmic determinism.<br>
+      <div class="practitioner-images">
+        <img src="refik1.avif" alt="Refik Anadol artwork 1">
+        <img src="refik2.jpg" alt="Refik Anadol artwork 2">
+        <img src="refik3.jpg" alt="Refik Anadol artwork 3">
+      </div><br>
+      
+      My project reorients from my precedent study on AI excavation by focusing more directly on embodied emotional atmospheres shaped through color, light, and form, using computational tools to create spatial and experiential designs. While it shares audiences with these practitioners, it also aims to contribute to architectural and design communities invested in affective computing and sensory environmental design. The audience for my project extends beyond the art world to include architects, urban planners, and mental health professionals interested in the therapeutic potential of emotionally intelligent spaces.
+    </div>
+    
+    <!-- Situated technology section -->
+    <div id="situated-technology" class="project-title">Situated Technology</div>
+    <div class="section-content">
+      I engage with computational design tools such as p5.js, Three.js, and D3.js to prototype and simulate affective atmospheres, situating technology as both a medium and method for exploring emotional architectural space. This approach aligns with the CDP theme of situated technology by treating computation not as a universal solution but as a contextual tool embedded within specific spatial and emotional conditions. The technology serves the human experience rather than dictating it, creating responsive environments that adapt to individual emotional states and collective atmospheres. This challenges the dominant paradigm of technology-driven design by prioritizing emotional intelligence and human agency in computational systems.
+    </div>
+    
+    <!-- Methods section -->
+    <div id="methods" class="project-title">Methods</div>
+    <div class="section-content">
+      • <strong>Software & Computational:</strong> p5.js for prototyping emotional interactions and real-time color systems; Three.js for 3D spatial simulations and immersive environments; D3.js for data visualization of emotional patterns; Processing for generative color algorithms.<br><br>
+      
+      • <strong>Data & Modeling:</strong> Emotion models like the Circumplex Model and Plutchik's Wheel to inform spatial color and light design; biometric data collection for emotional response mapping; machine learning for pattern recognition in emotional color preferences.<br><br>
+      
+      • <strong>Qualitative Research:</strong> User interviews and feedback sessions to capture affective responses; phenomenological analysis of spatial experience; ethnographic observation of emotional behavior in designed environments.<br><br>
+      
+      • <strong>Physical & Material:</strong> Printed visualizations and QR-linked immersive environments; physical color samples and material testing; scale models and prototypes for spatial validation.<br><br>
+      
+      • <strong>Design & Aesthetic:</strong> Combining color bands, light modulation, and simple geometric forms to create affective zones; iterative design processes informed by user testing; visual language development through digital and analog sketching.
+    </div>
+    
+    <!-- Computational design experiments section -->
+    <div id="computational-experiments" class="project-title">Computational Design Experiments</div>
+    <div class="section-content">
+      Throughout the semester, I developed a comprehensive computational experiment that informed my project development:<br><br>
+      • <strong>Purple Color Experimentation Platform</strong>: Developed a comprehensive interactive website exploring the emotional and perceptual qualities of purple through multiple computational approaches. This experiment combines p5.js for interactive color animations, D3.js for data visualization of purple's evolution through time, and Three.js for immersive 3D environments. The platform includes an "Amethyst Light Emergence Network" that visualizes the chemistry and physics of purple coloration, interactive sound machines that respond to purple crystal interactions, and neighborhood explorations that map purple's presence across Manhattan. This work demonstrates my interest in using computational tools to create multi-sensory experiences that explore the emotional and cultural dimensions of color.<br><br>
+      
+      <div class="experiment-description">Interactive Purple Realities Experiment - Explore the embedded website below:</div>
+      <div class="experiment-content">
+        <div class="experiment-section">
+          <h3>Amethyst Light Emergence Network</h3>
+          <p>An interactive visualization exploring the chemistry and physics of purple coloration, showing how light interacts with crystal structures to create the distinctive amethyst hue. Users can manipulate molecular arrangements and observe real-time color changes.</p>
+        </div>
+        
+        <div class="experiment-section">
+          <h3>Purple Crystal Sound Machines</h3>
+          <p>Interactive sound installations that respond to purple crystal interactions, creating ambient audio environments that complement the visual experience. Each crystal generates unique tonal patterns based on its geometric properties.</p>
+        </div>
+        
+        <div class="experiment-section">
+          <h3>Manhattan Purple Mapping</h3>
+          <p>An imagined color-based mapping system that uses purple as a navigational and emotional guide through Manhattan, rather than traditional functional mapping. This conceptual approach treats color as the primary organizing principle, creating a new way of experiencing urban space through chromatic awareness and emotional resonance.</p>
+        </div>
+        
+        <div class="experiment-link">
+          <a href="https://romeli7.github.io/my-first-repo/" target="_blank" class="experiment-button">
+            <span>View Full Interactive Experience</span>
+            <span class="arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+
+    
+    <!-- Visual representation section -->
+    <div id="visual-representation" class="project-title">Visual Representation</div>
+    <div class="section-content">
+      <div class="visual-language-container">
+        <!-- Visual Elements Grid -->
+        <div class="visual-elements">
+          <div class="element-card">
+            <div class="element-visual gradient-demo">
+              <div class="gradient-layer"></div>
+              <div class="gradient-layer"></div>
+              <div class="gradient-layer"></div>
+            </div>
+            <div class="element-title">Color Field Gradients</div>
+            <div class="element-desc">Layered color transitions that evoke emotional depth and atmospheric quality</div>
+          </div>
+          
+          <div class="element-card">
+            <div class="element-visual geometric-demo">
+              <div class="geo-shape"></div>
+              <div class="geo-shape"></div>
+              <div class="geo-shape"></div>
+            </div>
+            <div class="element-title">Geometric Forms</div>
+            <div class="element-desc">Precise shapes and structures that create spatial relationships and visual hierarchy</div>
+          </div>
+          
+          <div class="element-card">
+            <div class="element-visual light-demo">
+              <div class="light-ray"></div>
+              <div class="light-ray"></div>
+              <div class="light-ray"></div>
+              <div class="light-core"></div>
+            </div>
+            <div class="element-title">Layered Light</div>
+            <div class="element-desc">Multi-dimensional illumination that creates depth and emotional atmosphere</div>
+          </div>
+        </div>
+        
+        <!-- Aesthetic Principles -->
+        <div class="aesthetic-principles">
+          <div class="principle-section">
+            <div class="principle-title">Aesthetic Approach</div>
+            <div class="principle-grid">
+              <div class="principle-item">
+                <div class="principle-icon">🎯</div>
+                <div class="principle-text">Clarity over Complexity</div>
+              </div>
+              <div class="principle-item">
+                <div class="principle-icon">💜</div>
+                <div class="principle-text">Emotional Resonance</div>
+              </div>
+              <div class="principle-item">
+                <div class="principle-icon">🎨</div>
+                <div class="principle-text">Color as Communication</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="principle-section">
+            <div class="principle-title">Design Philosophy</div>
+            <div class="philosophy-flow">
+              <div class="philosophy-step">
+                <div class="step-number">1</div>
+                <div class="step-text">Digital Precision</div>
+              </div>
+              <div class="philosophy-arrow">+</div>
+              <div class="philosophy-step">
+                <div class="step-number">2</div>
+                <div class="step-text">Phenomenological Sensitivity</div>
+              </div>
+              <div class="philosophy-arrow">=</div>
+              <div class="philosophy-step result">
+                <div class="step-number">3</div>
+                <div class="step-text">Emotionally Accessible</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Community Context -->
+        <div class="community-context">
+          <div class="context-title">Visual Language Communities</div>
+          <div class="community-grid">
+            <div class="community-item">
+              <div class="community-icon">💻</div>
+              <div class="community-name">Computational Artists</div>
+              <div class="community-focus">Technical Innovation</div>
+            </div>
+            <div class="community-item">
+              <div class="community-icon">🏗️</div>
+              <div class="community-name">Environmental Designers</div>
+              <div class="community-focus">Spatial Experience</div>
+            </div>
+            <div class="community-item">
+              <div class="community-icon">🧠</div>
+              <div class="community-name">Affective Computing</div>
+              <div class="community-focus">Emotional Intelligence</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Rhetorical argument section -->
+    <div id="rhetorical-argument" class="project-title">Rhetorical Argument</div>
+    <div class="section-content">
+      <div class="argument-diagram">
+        <div class="argument-flow">
+          <!-- Proposed Paradigm -->
+          <div class="argument-box proposed">
+            <div class="box-header">Proposed Paradigm</div>
+            <div class="box-content">
+              <div class="priority-list">
+                <div class="priority-item primary">Human Wellbeing</div>
+                <div class="priority-item secondary">Emotional Intelligence</div>
+                <div class="priority-item tertiary">Form & Function</div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Challenge Arrow -->
+          <div class="challenge-arrow">
+            <div class="arrow-line"></div>
+            <div class="arrow-head"></div>
+            <div class="challenge-text">CHALLENGES</div>
+          </div>
+          
+          <!-- Current Paradigm -->
+          <div class="argument-box current">
+            <div class="box-header">Current Paradigm</div>
+            <div class="box-content">
+              <div class="priority-list">
+                <div class="priority-item primary">Form & Function</div>
+                <div class="priority-item secondary">Aesthetics</div>
+                <div class="priority-item tertiary">Human Emotion</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Supporting Evidence -->
+        <div class="evidence-section">
+          <div class="evidence-title">Supporting Evidence</div>
+          <div class="evidence-grid">
+            <div class="evidence-item">
+              <div class="evidence-icon">🎨</div>
+              <div class="evidence-text">Color as fundamental architectural material</div>
+            </div>
+            <div class="evidence-item">
+              <div class="evidence-icon">💻</div>
+              <div class="evidence-text">Computational tools for responsive environments</div>
+            </div>
+            <div class="evidence-item">
+              <div class="evidence-icon">🧠</div>
+              <div class="evidence-text">Emotion as design parameter, not afterthought</div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Broader Impact -->
+        <div class="impact-section">
+          <div class="impact-title">Broader Societal Impact</div>
+          <div class="impact-flow">
+            <div class="impact-item">
+              <div class="impact-icon">🏥</div>
+              <div class="impact-text">Mental Health</div>
+            </div>
+            <div class="impact-item">
+              <div class="impact-icon">🏙️</div>
+              <div class="impact-text">Urban Stress</div>
+            </div>
+            <div class="impact-item">
+              <div class="impact-icon">👥</div>
+              <div class="impact-text">Human-Centered Design</div>
+            </div>
+            <div class="impact-item">
+              <div class="impact-icon">🌐</div>
+              <div class="impact-text">Digital Connection</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Capstone project outline section -->
+    <div id="capstone-outline" class="project-title">Brief Outline of a Potential Capstone Project</div>
+    <div class="section-content">
+      The capstone project will develop into a full-scale interactive immersive installation that creates a complete emotional journey through space. The installation will feature five distinct spatial zones, each representing different emotional states from the Circumplex Model (joy, calm, energy, mystery, serenity), with adaptive modulation of color, light, and form that responds to individual users and collective group dynamics. The project will integrate advanced computational systems including real-time emotional sensing, machine learning for pattern recognition, and responsive environmental controls. The installation will serve as both a research platform for studying emotional responses to designed environments and a demonstration of the potential for emotionally intelligent architecture. Rather than proposing a solution to a problem I don't yet fully understand, this approach allows for iterative development and discovery of new insights about the relationship between emotion, space, and technology.
+    </div>
+    
+    <!-- The challenge section -->
+    <div id="challenges" class="project-title">The Challenge</div>
+    <div class="section-content">
+      • <strong>Technical Skills</strong>: Mastering real-time 3D visualization tools like Three.js, learning advanced computational techniques for emotional modeling, and developing proficiency in interactive system design.<br>
+      • <strong>Conceptual Balance</strong>: Balancing computational complexity with emotional clarity, ensuring that technical sophistication serves rather than overwhelms the emotional experience.<br>
+      • <strong>Interface Design</strong>: Creating intuitive physical-digital interfaces that feel natural and responsive, bridging the gap between computational systems and human emotional experience.<br>
+      • <strong>Interdisciplinary Integration</strong>: Synthesizing knowledge from color theory, psychology, architecture, and computational design into a coherent and meaningful practice.<br>
+      • <strong>Research Methodology</strong>: Developing rigorous methods for studying emotional responses to designed environments, including both qualitative and quantitative approaches.<br>
+      • <strong>Ethical Considerations</strong>: Addressing the ethical implications of emotional engineering and ensuring that the technology serves human wellbeing rather than manipulation.
+    </div>
+    
+  </main>
+
+
+
+
+
+</body>
+<!-- End of body - all visible content goes above this line -->
+</html>
+<!-- End of HTML document --> 

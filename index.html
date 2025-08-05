@@ -11,7 +11,7 @@
   <meta charset="UTF-8">
   
   <!-- This is the title that appears in the browser tab -->
-  <title>Affective Architecture</title>
+      <title>Sensing Senses</title>
   
   <!-- Inline CSS for styling the page -->
   <style>
@@ -200,6 +200,125 @@
       max-height: 80vh;
       width: 100%;
       padding-right: 12px;
+    }
+    
+    /* Amethyst Pulse Animation for Poll Buttons */
+    .amethyst-pulse {
+      animation: amethystPulse 0.5s;
+    }
+    @keyframes amethystPulse {
+      0% { box-shadow: 0 0 0 0 #cc88ff88; }
+      70% { box-shadow: 0 0 16px 12px #cc88ff44; }
+      100% { box-shadow: 0 0 0 0 #cc88ff00; }
+    }
+    .orb-btn {
+      position: absolute;
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      border: none;
+      outline: none;
+      box-shadow: 0 0 24px #cc88ff99, 0 0 2px #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      font-weight: bold;
+      color: #fff;
+      cursor: pointer;
+      transition: transform 0.12s, box-shadow 0.18s;
+      z-index: 2;
+      background: transparent;
+    }
+    .orb-btn:active {
+      transform: scale(1.12);
+      box-shadow: 0 0 36px #e8d5ffcc, 0 0 8px #fff;
+    }
+    .orb-label {
+      font-size: 18px;
+      font-weight: 700;
+      color: #fff;
+      text-shadow: 0 0 6px #9F5FFF;
+      pointer-events: none;
+    }
+    .amethyst-orb-btn {
+      position: absolute;
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      border: none;
+      outline: none;
+      box-shadow: 0 0 24px #cc88ff99, 0 0 2px #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      font-weight: bold;
+      color: #fff;
+      cursor: pointer;
+      transition: transform 0.12s, box-shadow 0.18s;
+      z-index: 2;
+      background: transparent;
+    }
+    .amethyst-orb-btn:active {
+      transform: scale(1.12);
+      box-shadow: 0 0 36px #e8d5ffcc, 0 0 8px #fff;
+    }
+    .amethyst-orb-label {
+      font-size: 18px;
+      font-weight: 700;
+      color: #fff;
+      text-shadow: 0 0 6px #9F5FFF;
+      pointer-events: none;
+    }
+    .amethyst-crystal-btn {
+      position: absolute;
+      width: 74px;
+      height: 90px;
+      border: none;
+      outline: none;
+      background: transparent;
+      cursor: pointer;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.18s, box-shadow 0.18s;
+      filter: drop-shadow(0 0 18px #cc88ff99);
+    }
+    .amethyst-crystal-btn:active {
+      transform: scale(1.08) rotate(-2deg);
+      filter: drop-shadow(0 0 32px #e8d5ffcc);
+    }
+    .amethyst-crystal-shape {
+      width: 64px;
+      height: 80px;
+      display: block;
+      clip-path: polygon(50% 0%, 90% 20%, 100% 60%, 75% 100%, 25% 100%, 0% 60%, 10% 20%);
+      box-shadow: 0 0 24px #cc88ff55, 0 0 8px #fff2;
+      background: linear-gradient(135deg, var(--crystal1), var(--crystal2) 60%, var(--crystal3));
+      border-radius: 18% 18% 30% 30%/22% 22% 40% 40%;
+      position: relative;
+    }
+    .amethyst-crystal-shine {
+      position: absolute;
+      left: 18px; top: 12px;
+      width: 18px; height: 28px;
+      background: linear-gradient(120deg, #fff8 60%, #fff0 100%);
+      border-radius: 40% 60% 60% 40%/60% 40% 60% 40%;
+      opacity: 0.7;
+      pointer-events: none;
+    }
+    .amethyst-crystal-label {
+      position: absolute;
+      left: 50%;
+      top: 92px;
+      transform: translateX(-50%);
+      font-size: 18px;
+      font-weight: 700;
+      color: #fff;
+      text-shadow: 0 0 6px #9F5FFF, 0 0 2px #fff;
+      pointer-events: none;
     }
 
     /* Full-screen section styling */
@@ -1544,7 +1663,7 @@
 
     <!-- Title Section -->
     <div class="fullscreen-section active" id="title-section">
-      <div class="project-title-main">The Missing Sense</div>
+      <div class="project-title-main">Sensing Senses</div>
       <div class="project-subtitle">Computational Design for Sensory Integration</div>
     </div>
     
@@ -1683,11 +1802,11 @@
       </div>
     </div>
 
-    <!-- Research Network Visualization -->
+    <!-- Research & Methods Network Visualization -->
     <div class="fullscreen-section" id="research-network">
-      <div class="project-title" style="margin-top: 120px;">Research Network</div>
+      <div class="project-title" style="margin-top: 120px;">Research & Methods Network</div>
       <div style="display: flex; justify-content: center; align-items: center; width: 100%; height: 100%; padding: 0 40px; box-sizing: border-box;">
-        <div id="d3-network-container" style="width: 100%; height: 400px; margin: 0; overflow: visible;"></div>
+        <div id="d3-network-container" style="width: 100%; height: 500px; margin: 0; overflow: visible;"></div>
       </div>
     </div>
 
@@ -1706,40 +1825,241 @@
       </div>
     </div>
 
-    
+    <!-- Situated Technology Section -->
+    <div class="fullscreen-section" id="situated-technology">
+      <div class="project-title">Situated Technology</div>
+      <div class="section-content">
+        <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; width: 100%; height: 100%; padding: 0 40px; box-sizing: border-box;">
+          <div style="max-width: 900px; text-align: center;">
+            <div style="font-size: 28px; color: #000000; line-height: 1.8; margin-bottom: 40px;">
+              "Embedded is a question, namely, whether there is an oppositional space to the computable, and if there is such a thing as incomputable qualities, ideas, or experiences. And perhaps we intuitively know the answer—yes—but how do we capture what's ineffable, and what's incomputable?"
+            </div>
+            <div style="font-size: 16px; color: #000000; font-weight: 600;">
+              — Khan, Nora N. 2022. Mirror Stage: Between Computability and Its Opposite. HOLO 3.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-    
 
-    
 
-    
+    <!-- Computational Design Experiments: Hear Textures -->
+    <div class="fullscreen-section" id="computational-experiments-hear-textures">
+      <div class="project-title">Computational Design Experiments: Hear Textures</div>
+      <div class="section-content">
+        <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; width: 100%; height: 100%; padding: 0 40px; box-sizing: border-box;">
+          <!-- Experiment Container -->
+          <div style="width: 100%; max-width: 900px; text-align: center;">
+            <h3 style="font-size: 24px; color: #6a4c93; margin-bottom: 20px;">Amethyst Sound Machine</h3>
+            
+            <!-- Control Panel -->
+            <div style="width: 100%; display: flex; justify-content: center; margin-bottom: 30px; gap: 16px;">
+              <button id="texture-stopall" style="background: linear-gradient(90deg, #6c3483 60%, #9F5FFF 100%); color: #fff; border: none; border-radius: 8px; padding: 10px 22px; font-size: 16px; font-weight: 600; cursor: pointer; box-shadow: 0 0 12px #6c348388, 0 0 2px #fff; text-shadow: 0 0 6px #fff; border-bottom: 2.5px solid #e8d5ff;">Stop All</button>
+            </div>
+            
+            <!-- Amethyst Crystal Panel -->
+            <div id="texture-orb-panel" style="position: relative; width: 420px; height: 320px; margin: 0 auto; display: flex; align-items: center; justify-content: center;"></div>
+            
 
-    
+          </div>
+        </div>
+      </div>
+    </div>
 
-    
+    <!-- Computational Design Experiments: Taste Colors -->
+    <div class="fullscreen-section" id="computational-experiments-taste-colors">
+      <div class="project-title">Computational Design Experiments: Taste Colors</div>
+      <div class="section-content">
+        <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; width: 100%; height: 100%; padding: 0 40px; box-sizing: border-box;">
+                                <!-- Experiment Container -->
+                      <div style="width: 100%; max-width: 900px; text-align: center;">
+                        <h3 style="font-size: 22px; color: #6a4c93; margin-bottom: 15px;">Computational Taste Synthesis</h3>
 
-    
+                        <!-- Color Input Section -->
+                        <div style="display: flex; gap: 25px; align-items: center; justify-content: center; margin-bottom: 20px;">
+                          <!-- Color Picker -->
+                          <div style="display: flex; flex-direction: column; gap: 10px; align-items: center;">
+                            <div style="font-size: 14px; font-weight: 600; color: #6a4c93;">Input Colors</div>
+                            <input type="color" id="color-picker" value="#ff6b6b" style="width: 50px; height: 50px; border: none; border-radius: 50%; cursor: pointer; box-shadow: 0 4px 16px rgba(0,0,0,0.2);">
+                            <button id="add-color-btn" style="background: linear-gradient(90deg, #6c3483 60%, #9F5FFF 100%); color: #fff; border: none; border-radius: 6px; padding: 6px 12px; font-size: 12px; font-weight: 600; cursor: pointer; box-shadow: 0 0 12px #6c348388, 0 0 2px #fff; text-shadow: 0 0 6px #fff;">Add</button>
+                          </div>
 
-    
+                          <!-- Color Mix Display -->
+                          <div style="display: flex; flex-direction: column; gap: 10px; align-items: center;">
+                            <div style="font-size: 14px; font-weight: 600; color: #6a4c93;">Color Mix</div>
+                            <div id="color-mix-display" style="width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(45deg, #f0f0f0, #e0e0e0); border: 2px dashed #6a4c93; display: flex; align-items: center; justify-content: center; font-weight: 600; color: #6a4c93; font-size: 10px; box-shadow: 0 4px 16px rgba(106, 76, 147, 0.2);">
+                              Add colors
+                            </div>
+                            <div id="color-list" style="display: flex; gap: 4px; flex-wrap: wrap; max-width: 120px; justify-content: center;"></div>
+                          </div>
+                        </div>
 
-    
+                        <!-- Control Panel -->
+                        <div style="width: 100%; display: flex; justify-content: center; margin-bottom: 20px; gap: 12px;">
+                          <button id="taste-compute" style="background: linear-gradient(90deg, #6c3483 60%, #9F5FFF 100%); color: #fff; border: none; border-radius: 6px; padding: 8px 16px; font-size: 14px; font-weight: 600; cursor: pointer; box-shadow: 0 0 12px #6c348388, 0 0 2px #fff; text-shadow: 0 0 6px #fff; border-bottom: 2px solid #e8d5ff;">Compute</button>
+                          <button id="taste-play" style="background: linear-gradient(90deg, #6c3483 60%, #9F5FFF 100%); color: #fff; border: none; border-radius: 6px; padding: 8px 16px; font-size: 14px; font-weight: 600; cursor: pointer; box-shadow: 0 0 12px #6c348388, 0 0 2px #fff; text-shadow: 0 0 6px #fff; border-bottom: 2px solid #e8d5ff;">Play</button>
+                          <button id="taste-clear" style="background: linear-gradient(90deg, #6c3483 60%, #9F5FFF 100%); color: #fff; border: none; border-radius: 6px; padding: 8px 16px; font-size: 14px; font-weight: 600; cursor: pointer; box-shadow: 0 0 12px #6c348388, 0 0 2px #fff; text-shadow: 0 0 6px #fff; border-bottom: 2px solid #e8d5ff;">Clear</button>
+                        </div>
 
-    
+                        <!-- Computed Taste Result -->
+                        <div style="display: flex; gap: 25px; align-items: center; justify-content: center;">
+                          <!-- Taste Visualization -->
+                          <div style="display: flex; flex-direction: column; gap: 10px; align-items: center;">
+                            <div style="font-size: 14px; font-weight: 600; color: #6a4c93;">Computed Taste</div>
+                            <div id="taste-result-display" style="width: 100px; height: 100px; border-radius: 50%; background: linear-gradient(45deg, #f0f0f0, #e0e0e0); border: 2px solid #6a4c93; display: flex; align-items: center; justify-content: center; font-weight: 600; color: #6a4c93; font-size: 12px; text-align: center; box-shadow: 0 4px 16px rgba(106, 76, 147, 0.2);">
+                              Compute taste
+                            </div>
+                          </div>
 
-    
+                          <!-- Taste Analysis -->
+                          <div style="display: flex; flex-direction: column; gap: 10px; align-items: center; max-width: 250px;">
+                            <div style="font-size: 14px; font-weight: 600; color: #6a4c93;">Taste Analysis</div>
+                            <div id="taste-analysis" style="font-size: 12px; color: #6a4c93; font-weight: 500; text-align: center; line-height: 1.3; background: rgba(106, 76, 147, 0.1); padding: 10px; border-radius: 6px; border: 1px solid rgba(106, 76, 147, 0.2); max-height: 80px; overflow-y: auto;">
+                              Add colors and click "Compute Taste" to analyze your color combination
+                            </div>
+                          </div>
+                        </div>
 
-    
+                        <!-- Algorithm Info -->
+                        <div style="margin-top: 15px; font-size: 10px; color: #6a4c93; opacity: 0.7; max-width: 500px; margin-left: auto; margin-right: auto;">
+                          <strong>Algorithm:</strong> Analyzes hue, saturation, brightness, and color relationships to compute taste profiles using synesthetic mapping principles
+                        </div>
+                      </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- Visual Representation Section -->
+    <div class="fullscreen-section" id="visual-representation">
+      <div class="project-title">Visual Representation</div>
+      <div class="section-content">
+        <div id="visual-images-container" style="display: flex; justify-content: space-between; align-items: center; width: 100%; height: 100%; padding: 0 20px; box-sizing: border-box;">
+          
+          <img src="SensorialSynestheticWheelLucaMaroni.png" alt="Luca's Synesthetic Wheel" style="width: 33%; height: 90%; object-fit: contain; cursor: pointer; transition: all 0.3s ease;" onclick="expandImage(this, 'SensorialSynestheticWheelLucaMaroni.png')">
+          
+          <img src="ecosophy.webp" alt="Ecosophy Framework" style="width: 33%; height: 90%; object-fit: contain; cursor: pointer; transition: all 0.3s ease;" onclick="expandImage(this, 'ecosophy.webp')">
+          
+          <img src="9 steps.png" alt="9-Step Process" style="width: 33%; height: 90%; object-fit: contain; cursor: pointer; transition: all 0.3s ease;" onclick="expandImage(this, '9 steps.png')">
+          
+        </div>
+      </div>
+    </div>
+
+    <!-- Capstone Project Outline Section -->
+    <div class="fullscreen-section" id="capstone-outline">
+      <div class="project-title">Capstone Project Outline</div>
+      <div class="section-content">
+        <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%; padding: 20px; text-align: center;">
+          <div style="max-width: 800px; font-size: 20px; line-height: 1.6; color: #000000; margin-bottom: 15px;">
+            "Sight isn't the only way to experience the world: Senses work in tandem to guide cognition, movement, and communication. Experts posit that <strong style='color: #000000; font-size: 24px;'>humans possess between 9 and 33 distinct senses</strong>, yet digital design routinely ignores neurological factors beyond sight. Sensory design principles emphasize the interconnection of human perception and prompt designers to explore non-visual solutions."
+          </div>
+          <div style="font-size: 16px; color: #000000; font-style: italic; margin-bottom: 40px;">
+            — Micah Bowers, Managing Editor, Design and Developer Content Marketing, Toptal
+          </div>
+          
+          <!-- Process Flow Diagram -->
+          <div style="width: 100%; max-width: 900px; margin-top: 20px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+              <div style="background: linear-gradient(135deg, #6a4c93, #8B5CF6); color: white; padding: 15px 25px; border-radius: 25px; font-weight: 600; font-size: 18px; box-shadow: 0 4px 15px rgba(106, 76, 147, 0.3);">
+                Research
+              </div>
+              <div style="width: 60px; height: 3px; background: linear-gradient(90deg, #6a4c93, #8B5CF6);"></div>
+              <div style="background: linear-gradient(135deg, #8B5CF6, #A855F7); color: white; padding: 15px 25px; border-radius: 25px; font-weight: 600; font-size: 18px; box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);">
+                Design
+              </div>
+              <div style="width: 60px; height: 3px; background: linear-gradient(90deg, #8B5CF6, #A855F7);"></div>
+              <div style="background: linear-gradient(135deg, #A855F7, #C084FC); color: white; padding: 15px 25px; border-radius: 25px; font-weight: 600; font-size: 18px; box-shadow: 0 4px 15px rgba(168, 85, 247, 0.3);">
+                Prototype
+              </div>
+              <div style="width: 60px; height: 3px; background: linear-gradient(90deg, #A855F7, #C084FC);"></div>
+              <div style="background: linear-gradient(135deg, #C084FC, #EC4899); color: white; padding: 15px 25px; border-radius: 25px; font-weight: 600; font-size: 18px; box-shadow: 0 4px 15px rgba(192, 132, 252, 0.3);">
+                Test
+              </div>
+              <div style="width: 60px; height: 3px; background: linear-gradient(90deg, #C084FC, #EC4899);"></div>
+              <div style="background: linear-gradient(135deg, #EC4899, #F472B6); color: white; padding: 15px 25px; border-radius: 25px; font-weight: 600; font-size: 18px; box-shadow: 0 4px 15px rgba(236, 72, 153, 0.3);">
+                Iterate
+              </div>
+            </div>
+            
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <div style="text-align: center; color: #6a4c93; font-weight: 600; font-size: 14px; width: 120px;">
+                Sensory<br>Mapping
+              </div>
+              <div style="width: 60px;"></div>
+              <div style="text-align: center; color: #8B5CF6; font-weight: 600; font-size: 14px; width: 120px;">
+                Cross-Modal<br>Design
+              </div>
+              <div style="width: 60px;"></div>
+              <div style="text-align: center; color: #A855F7; font-weight: 600; font-size: 14px; width: 120px;">
+                Multi-Sensory<br>Experience
+              </div>
+              <div style="width: 60px;"></div>
+              <div style="text-align: center; color: #C084FC; font-weight: 600; font-size: 14px; width: 120px;">
+                User<br>Feedback
+              </div>
+              <div style="width: 60px;"></div>
+              <div style="text-align: center; color: #EC4899; font-weight: 600; font-size: 14px; width: 120px;">
+                Refined<br>Experience
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- The Challenge Section -->
+    <div class="fullscreen-section" id="the-challenge">
+      <div class="project-title">The Challenge</div>
+      <div class="section-content">
+        <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%; padding: 20px; text-align: center;">
+          <div style="max-width: 1000px; width: 100%;">
+            <table style="width: 100%; border-collapse: collapse;">
+              <thead>
+                <tr style="background: linear-gradient(135deg, #6a4c93, #8B5CF6); color: white;">
+                  <th style="padding: 20px; text-align: center; font-size: 18px; font-weight: 600; border: none;">Challenge</th>
+                  <th style="padding: 20px; text-align: center; font-size: 18px; font-weight: 600; border: none;">Problem</th>
+                  <th style="padding: 20px; text-align: center; font-size: 18px; font-weight: 600; border: none;">Impact</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid #e0e0e0;">
+                  <td style="padding: 20px; font-size: 16px; font-weight: 600; color: #6a4c93;">The Individuality Problem</td>
+                  <td style="padding: 20px; font-size: 16px; color: #333;">Computational systems assume universal sensory experiences, but human perception is highly individual and variable</td>
+                  <td style="padding: 20px; font-size: 16px; color: #333;">Digital sensory design fails to account for personal differences in perception, sensitivity, and preference</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #e0e0e0;">
+                  <td style="padding: 20px; font-size: 16px; font-weight: 600; color: #6a4c93;">Quantifying the Qualitative</td>
+                  <td style="padding: 20px; font-size: 16px; color: #333;">How to translate qualitative sensory experiences into quantitative computational systems</td>
+                  <td style="padding: 20px; font-size: 16px; color: #333;">Loss of meaning when rich experiences are reduced to data points</td>
+                </tr>
+                <tr>
+                  <td style="padding: 20px; font-size: 16px; font-weight: 600; color: #6a4c93;">The Cross-Modal Research Gap</td>
+                  <td style="padding: 20px; font-size: 16px; color: #333;">Most research studies senses in isolation, missing how they work together</td>
+                  <td style="padding: 20px; font-size: 16px; color: #333;">Incomplete understanding of how senses interact and influence each other</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
 
     
   </main>
 
   <!-- D3.js Library -->
   <script src="https://d3js.org/d3.v7.min.js"></script>
+  
+  <!-- Tone.js for Audio Synthesis -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
 
   <!-- JavaScript for section navigation -->
   <script>
     let currentSection = 1;
-    const totalSections = 13;
+    const totalSections = 19;
     let isScrolling = false;
           const sections = [
         'title-section',
@@ -1754,7 +2074,13 @@
         'senses-combined-hemmer',
         'senses-combined-ikeda',
         'research-network',
-        'research-questions'
+        'research-questions',
+        'situated-technology',
+        'computational-experiments-hear-textures',
+        'computational-experiments-taste-colors',
+        'visual-representation',
+        'capstone-outline',
+        'the-challenge'
       ];
 
     // Generate scroll dots
@@ -1786,6 +2112,44 @@
       });
     }
 
+    // Initialize experiments when sections are shown
+    let currentExperiment = null;
+    
+    // Image expansion functionality
+    function expandImage(imgElement, imageSrc) {
+      const container = document.getElementById('visual-images-container');
+      const allImages = container.querySelectorAll('img');
+      
+      // If an image is already expanded, collapse it
+      if (imgElement.style.width === '100%') {
+        allImages.forEach(img => {
+          img.style.width = '33%';
+          img.style.height = '90%';
+          img.style.zIndex = '1';
+          img.style.transform = 'scale(1)';
+          img.style.cursor = 'pointer';
+        });
+        container.style.flexDirection = 'row';
+      } else {
+        // Collapse all images first
+        allImages.forEach(img => {
+          img.style.width = '0%';
+          img.style.height = '90%';
+          img.style.zIndex = '1';
+          img.style.transform = 'scale(1)';
+        });
+        
+        // Expand the clicked image
+        imgElement.style.width = '100%';
+        imgElement.style.height = '90%';
+        imgElement.style.zIndex = '10';
+        imgElement.style.cursor = 'zoom-in';
+        container.style.flexDirection = 'row';
+        
+
+      }
+    }
+
     function showSection(sectionNumber) {
       // Hide all sections
       document.querySelectorAll('.fullscreen-section').forEach(section => {
@@ -1796,6 +2160,27 @@
       const currentSectionElement = document.getElementById(sections[sectionNumber - 1]);
       if (currentSectionElement) {
         currentSectionElement.classList.add('active');
+      }
+
+      // Clean up previous experiment
+      if (currentExperiment) {
+        currentExperiment();
+        currentExperiment = null;
+      }
+
+      // Initialize experiments for specific sections
+      if (sectionNumber === 15) { // Hear Textures experiment
+        setTimeout(() => {
+          console.log('Starting Amethyst Sound Machine...');
+          currentExperiment = initAmethystSoundMachine();
+        }, 500);
+      }
+      
+      if (sectionNumber === 16) { // Taste Colors experiment
+        setTimeout(() => {
+          console.log('Starting Flavor Spectrum Visualization...');
+          currentExperiment = initFlavorSpectrum();
+        }, 500);
       }
 
       // Update scroll dots
@@ -1877,66 +2262,220 @@
     generateScrollDots();
     showSection(1);
 
-    // D3.js Network Visualization
+    // Methods Network Visualization
+    function createMethodsNetwork() {
+      const data = {
+        nodes: [
+          // Technical Tools
+          { id: "tonejs", group: "tools", label: "Tone.js", width: 80, height: 35 },
+          { id: "d3js", group: "tools", label: "D3.js", width: 70, height: 35 },
+          { id: "javascript", group: "tools", label: "JavaScript", width: 100, height: 35 },
+          { id: "css3", group: "tools", label: "CSS3", width: 60, height: 35 },
+          
+          // Research Methods
+          { id: "qualitative", group: "methods", label: "Qualitative Analysis", width: 140, height: 35 },
+          { id: "quantitative", group: "methods", label: "Quantitative Algorithms", width: 140, height: 35 },
+          { id: "iterative", group: "methods", label: "Iterative Design", width: 120, height: 35 },
+          { id: "user-testing", group: "methods", label: "User Testing", width: 100, height: 35 },
+          
+          // Theoretical Approaches
+          { id: "synesthetic", group: "theory", label: "Synesthetic Mapping", width: 130, height: 35 },
+          { id: "cross-modal", group: "theory", label: "Cross-Modal Perception", width: 140, height: 35 },
+          { id: "computational", group: "theory", label: "Computational Design", width: 130, height: 35 },
+          { id: "real-time", group: "theory", label: "Real-time Processing", width: 120, height: 35 }
+        ],
+        links: [
+          // Tool to Method connections
+          { source: "tonejs", target: "qualitative", value: 2 },
+          { source: "d3js", target: "quantitative", value: 3 },
+          { source: "javascript", target: "iterative", value: 3 },
+          { source: "css3", target: "user-testing", value: 2 },
+          
+          // Method to Theory connections
+          { source: "qualitative", target: "synesthetic", value: 3 },
+          { source: "quantitative", target: "cross-modal", value: 3 },
+          { source: "iterative", target: "computational", value: 3 },
+          { source: "user-testing", target: "real-time", value: 2 },
+          
+          // Theory connections
+          { source: "synesthetic", target: "cross-modal", value: 4 },
+          { source: "computational", target: "real-time", value: 3 },
+          { source: "cross-modal", target: "computational", value: 3 },
+          { source: "real-time", target: "synesthetic", value: 2 }
+        ]
+      };
+      
+      const width = document.getElementById('methods-network-container').offsetWidth;
+      const height = 500;
+      
+      const svg = d3.select('#methods-network-container')
+        .append('svg')
+        .attr('width', width)
+        .attr('height', height);
+      
+      const g = svg.append('g');
+      
+      // Color scale for groups
+      const color = d3.scaleOrdinal()
+        .domain(['tools', 'methods', 'theory'])
+        .range(['#9F5FFF', '#6c3483', '#6a4c93']);
+      
+      const simulation = d3.forceSimulation(data.nodes)
+        .force('link', d3.forceLink(data.links).id(d => d.id).distance(120))
+        .force('charge', d3.forceManyBody().strength(-300))
+        .force('center', d3.forceCenter(width / 2, height / 2))
+        .force('collision', d3.forceCollide().radius(d => Math.max(d.width, d.height) / 2 + 20))
+        .force('x', d3.forceX(width / 2).strength(0.1))
+        .force('y', d3.forceY(height / 2).strength(0.1));
+      
+      const link = g.append('g')
+        .selectAll('line')
+        .data(data.links)
+        .enter().append('line')
+        .attr('stroke', '#6a4c93')
+        .attr('stroke-width', d => Math.sqrt(d.value) * 2)
+        .attr('opacity', 0.6);
+      
+      const node = g.append('g')
+        .selectAll('g')
+        .data(data.nodes)
+        .enter().append('g')
+        .call(d3.drag()
+          .on('start', dragstarted)
+          .on('drag', dragged)
+          .on('end', dragended));
+      
+      node.append('rect')
+        .attr('width', d => d.width)
+        .attr('height', d => d.height)
+        .attr('x', d => -d.width / 2)
+        .attr('y', d => -d.height / 2)
+        .attr('rx', 8)
+        .attr('fill', d => color(d.group))
+        .attr('stroke', '#6a4c93')
+        .attr('stroke-width', 2);
+      
+      node.append('text')
+        .attr('text-anchor', 'middle')
+        .attr('dy', '0.35em')
+        .attr('fill', '#fff')
+        .attr('font-size', '12px')
+        .attr('font-weight', '600')
+        .text(d => d.label);
+      
+      function dragstarted(event, d) {
+        if (!event.active) simulation.alphaTarget(0.3).restart();
+        d.fx = d.x;
+        d.fy = d.y;
+      }
+      
+      function dragged(event, d) {
+        d.fx = event.x;
+        d.fy = event.y;
+      }
+      
+      function dragended(event, d) {
+        if (!event.active) simulation.alphaTarget(0);
+        d.fx = null;
+        d.fy = null;
+      }
+      
+      simulation.on('tick', () => {
+        link
+          .attr('x1', d => d.source.x)
+          .attr('y1', d => d.source.y)
+          .attr('x2', d => d.target.x)
+          .attr('y2', d => d.target.y);
+        
+        node
+          .attr('transform', d => `translate(${d.x},${d.y})`);
+      });
+    }
+
+    // Research & Methods Network Visualization
     function createResearchNetwork() {
       const data = {
         nodes: [
-          // Keywords (Sensory Focus)
-          { id: "sensory-integration", group: "keywords", label: "Sensory Integration", width: 140, height: 55 },
-          { id: "synesthesia", group: "keywords", label: "Synesthesia", width: 120, height: 55 },
-          { id: "proprioception", group: "keywords", label: "Proprioception", width: 130, height: 55 },
-          { id: "interoception", group: "keywords", label: "Interoception", width: 120, height: 55 },
-          { id: "multi-sensory", group: "keywords", label: "Multi-Sensory", width: 130, height: 55 },
-          { id: "embodied-perception", group: "keywords", label: "Embodied Perception", width: 140, height: 55 },
+          // Research Keywords (Sensory Focus)
+          { id: "sensory-integration", group: "research", label: "Sensory Integration", width: 140, height: 45 },
+          { id: "synesthesia", group: "research", label: "Synesthesia", width: 120, height: 45 },
+          { id: "multi-sensory", group: "research", label: "Multi-Sensory", width: 130, height: 45 },
+          { id: "embodied-perception", group: "research", label: "Embodied Perception", width: 140, height: 45 },
           
-          // 3 Intersecting Fields
-          { id: "computational-design", group: "fields", label: "Computational Design", width: 150, height: 55 },
-          { id: "sensory-science", group: "fields", label: "Sensory Science", width: 130, height: 55 },
-          { id: "perceptual-psychology", group: "fields", label: "Perceptual Psychology", width: 140, height: 55 },
+          // Research Fields
+          { id: "computational-design", group: "fields", label: "Computational Design", width: 150, height: 45 },
+          { id: "sensory-science", group: "fields", label: "Sensory Science", width: 130, height: 45 },
+          { id: "perceptual-psychology", group: "fields", label: "Perceptual Psychology", width: 140, height: 45 },
           
-          // Community of Practice (Senses Integrated Artists)
-          { id: "refik-anadol", group: "community", label: "Refik Anadol", width: 130, height: 55 },
-          { id: "teamlab", group: "community", label: "teamLab", width: 110, height: 55 },
-          { id: "rafael-hemmer", group: "community", label: "Rafael Hemmer", width: 130, height: 55 },
-          { id: "ryoji-ikeda", group: "community", label: "Ryoji Ikeda", width: 130, height: 55 },
-          { id: "james-turrell", group: "community", label: "James Turrell", width: 130, height: 55 },
-          { id: "olafur-eliasson", group: "community", label: "Olafur Eliasson", width: 130, height: 55 },
-          { id: "jenny-holzer", group: "community", label: "Jenny Holzer", width: 130, height: 55 },
-          { id: "liz-larner", group: "community", label: "Liz Larner", width: 130, height: 55 }
+          // Technical Methods & Tools
+          { id: "tonejs", group: "methods", label: "Tone.js", width: 80, height: 45 },
+          { id: "d3js", group: "methods", label: "D3.js", width: 70, height: 45 },
+          { id: "javascript", group: "methods", label: "JavaScript", width: 100, height: 45 },
+          { id: "css3", group: "methods", label: "CSS3", width: 60, height: 45 },
+          { id: "web-audio", group: "methods", label: "Web Audio API", width: 120, height: 45 },
+          { id: "canvas-api", group: "methods", label: "Canvas API", width: 100, height: 45 },
+          { id: "hsl-analysis", group: "methods", label: "HSL Analysis", width: 100, height: 45 },
+          { id: "frequency-mapping", group: "methods", label: "Frequency Mapping", width: 130, height: 45 },
+          { id: "real-time-processing", group: "methods", label: "Real-time Processing", width: 140, height: 45 },
+          { id: "state-management", group: "methods", label: "State Management", width: 130, height: 45 },
+          { id: "event-handling", group: "methods", label: "Event Handling", width: 120, height: 45 },
+          { id: "algorithmic-design", group: "methods", label: "Algorithmic Design", width: 130, height: 45 },
+          
+          // Community of Practice
+          { id: "refik-anadol", group: "community", label: "Refik Anadol", width: 130, height: 45 },
+          { id: "teamlab", group: "community", label: "teamLab", width: 110, height: 45 },
+          { id: "ryoji-ikeda", group: "community", label: "Ryoji Ikeda", width: 130, height: 45 },
+          { id: "james-turrell", group: "community", label: "James Turrell", width: 130, height: 45 }
         ],
         links: [
-          // Keywords to Fields
+          // Research to Fields
           { source: "sensory-integration", target: "computational-design", value: 3 },
           { source: "synesthesia", target: "sensory-science", value: 3 },
-          { source: "proprioception", target: "sensory-science", value: 3 },
-          { source: "interoception", target: "sensory-science", value: 3 },
           { source: "multi-sensory", target: "perceptual-psychology", value: 3 },
           { source: "embodied-perception", target: "computational-design", value: 3 },
           
-          // Fields to Community
-          { source: "computational-design", target: "refik-anadol", value: 4 },
-          { source: "computational-design", target: "teamlab", value: 4 },
-          { source: "sensory-science", target: "rafael-hemmer", value: 4 },
-          { source: "perceptual-psychology", target: "ryoji-ikeda", value: 4 },
-          { source: "sensory-science", target: "james-turrell", value: 4 },
-          { source: "perceptual-psychology", target: "olafur-eliasson", value: 4 },
-          { source: "computational-design", target: "jenny-holzer", value: 4 },
-          { source: "sensory-science", target: "liz-larner", value: 4 },
+          // Fields to Methods
+          { source: "computational-design", target: "javascript", value: 4 },
+          { source: "computational-design", target: "d3js", value: 3 },
+          { source: "computational-design", target: "algorithmic-design", value: 4 },
+          { source: "sensory-science", target: "tonejs", value: 4 },
+          { source: "sensory-science", target: "web-audio", value: 3 },
+          { source: "sensory-science", target: "frequency-mapping", value: 4 },
+          { source: "perceptual-psychology", target: "css3", value: 3 },
+          { source: "perceptual-psychology", target: "canvas-api", value: 3 },
+          { source: "perceptual-psychology", target: "hsl-analysis", value: 3 },
           
-          // Keywords to Community
-          { source: "sensory-integration", target: "refik-anadol", value: 2 },
-          { source: "multi-sensory", target: "teamlab", value: 2 },
-          { source: "proprioception", target: "rafael-hemmer", value: 2 },
-          { source: "embodied-perception", target: "ryoji-ikeda", value: 2 },
-          { source: "synesthesia", target: "james-turrell", value: 2 },
-          { source: "multi-sensory", target: "olafur-eliasson", value: 2 },
-          { source: "interoception", target: "jenny-holzer", value: 2 },
-          { source: "embodied-perception", target: "liz-larner", value: 2 }
+          // Methods to Community
+          { source: "tonejs", target: "ryoji-ikeda", value: 3 },
+          { source: "d3js", target: "refik-anadol", value: 3 },
+          { source: "javascript", target: "teamlab", value: 3 },
+          { source: "web-audio", target: "james-turrell", value: 2 },
+          { source: "frequency-mapping", target: "ryoji-ikeda", value: 3 },
+          { source: "algorithmic-design", target: "refik-anadol", value: 4 },
+          
+          // Research to Methods
+          { source: "synesthesia", target: "tonejs", value: 3 },
+          { source: "synesthesia", target: "frequency-mapping", value: 4 },
+          { source: "multi-sensory", target: "d3js", value: 2 },
+          { source: "multi-sensory", target: "real-time-processing", value: 3 },
+          { source: "embodied-perception", target: "javascript", value: 3 },
+          { source: "embodied-perception", target: "state-management", value: 3 },
+          { source: "sensory-integration", target: "web-audio", value: 3 },
+          { source: "sensory-integration", target: "event-handling", value: 3 },
+          
+          // Method to Method connections
+          { source: "tonejs", target: "frequency-mapping", value: 4 },
+          { source: "d3js", target: "algorithmic-design", value: 3 },
+          { source: "javascript", target: "real-time-processing", value: 4 },
+          { source: "javascript", target: "state-management", value: 3 },
+          { source: "css3", target: "hsl-analysis", value: 3 },
+          { source: "web-audio", target: "event-handling", value: 3 },
+          { source: "canvas-api", target: "real-time-processing", value: 3 }
         ]
       };
 
       const width = document.getElementById('d3-network-container').offsetWidth;
-      const height = 400;
+      const height = 500;
 
       const svg = d3.select('#d3-network-container')
         .append('svg')
@@ -1987,9 +2526,10 @@
         .attr('rx', 8)
         .attr('ry', 8)
         .attr('fill', d => {
-          if (d.group === 'keywords') return '#8b5cf6';
-          if (d.group === 'fields') return '#ec4899';
-          if (d.group === 'community') return '#c084fc';
+          if (d.group === 'research') return '#4C1D95';
+          if (d.group === 'fields') return '#7C3AED';
+          if (d.group === 'methods') return '#EC4899';
+          if (d.group === 'community') return '#F59E0B';
         })
         .attr('stroke', '#ffffff')
         .attr('stroke-width', 2);
@@ -2005,13 +2545,14 @@
 
       // Add legend in top right
       const legend = svg.append('g')
-        .attr('transform', `translate(${width - 200}, 60)`);
+        .attr('transform', `translate(${width - 200}, 20)`);
 
       // Legend items
       const legendData = [
-        { color: '#8b5cf6', label: 'Keywords', group: 'keywords' },
-        { color: '#ec4899', label: 'Fields', group: 'fields' },
-        { color: '#c084fc', label: 'Practitioners', group: 'community' }
+        { color: '#4C1D95', label: 'Research Keywords', group: 'research' },
+        { color: '#7C3AED', label: 'Fields', group: 'fields' },
+        { color: '#EC4899', label: 'Methods', group: 'methods' },
+        { color: '#F59E0B', label: 'Community', group: 'community' }
       ];
 
       legendData.forEach((item, i) => {
@@ -2074,6 +2615,837 @@
     document.addEventListener('DOMContentLoaded', function() {
       setTimeout(createResearchNetwork, 1000);
     });
+
+    // Amethyst Sound Machine for Hear Textures
+    function initAmethystSoundMachine() {
+      console.log('Initializing Amethyst Sound Machine...');
+      const amethystOrbCount = 8;
+      const amethystCrystals = [
+        { c1: '#b399ff', c2: '#9F5FFF', c3: '#6c3483' },
+        { c1: '#e8d5ff', c2: '#cc88ff', c3: '#7d3c98' },
+        { c1: '#d1b3ff', c2: '#B266FF', c3: '#8844ff' },
+        { c1: '#d9b3ff', c2: '#e8d5ff', c3: '#9F5FFF' },
+        { c1: '#b399ff', c2: '#6c3483', c3: '#cc88ff' },
+        { c1: '#e8d5ff', c2: '#D9B3FF', c3: '#7F3FBF' },
+        { c1: '#c299ff', c2: '#7F3FBF', c3: '#b399ff' },
+        { c1: '#b399ff', c2: '#8844ff', c3: '#e8d5ff' }
+      ];
+      const amethystSynthTypes = [
+        'sine', 'amsine', 'sine', 'amsine', 'sine', 'amsine', 'sine', 'amsine'
+      ]; // Note: All changed to 'sine' in implementation for soothing sound
+      const amethystNotes = ['C5','D5','E5','G5','A5','C6','D6','E6'];
+      const amethystCrystalLabels = ['A','M','E','T','H','Y','S','T'];
+      
+      let amethystSynths = [];
+      let amethystOrbStates = Array(amethystOrbCount).fill(false);
+      let amethystAmbientPad = null;
+      let amethystPadStarted = false;
+      
+      // Setup synths and ambient pad
+      const limiter = new Tone.Limiter(-18).toDestination();
+      for(let i=0;i<amethystOrbCount;i++) {
+        const synth = new Tone.PolySynth(Tone.Synth, {
+          oscillator: { type: 'sine' }, // Changed to sine for soothing sound
+          envelope: { attack: 2.0, decay: 0.5, sustain: 0.3, release: 4.0 } // Adjusted for soothing
+        });
+        const reverb = new Tone.Reverb({ decay: 12, wet: 0.95 }).toDestination(); // Adjusted for soothing
+        const delay = new Tone.FeedbackDelay({ delayTime: 0.8, feedback: 0.4, wet: 0.7 }).toDestination(); // Adjusted for soothing
+        const gain = new Tone.Gain(0.04).connect(limiter); // Adjusted for soothing
+        synth.connect(reverb);
+        synth.connect(delay);
+        synth.connect(gain);
+        amethystSynths[i] = synth;
+      }
+      
+      amethystAmbientPad = new Tone.PolySynth(Tone.Synth, {
+        oscillator: { type: 'sine' },
+        envelope: { attack: 4, decay: 2, sustain: 0.2, release: 8 } // Adjusted for soothing
+      });
+      const padReverb = new Tone.Reverb({ decay: 15, wet: 0.98 }).toDestination(); // Adjusted for soothing
+      const padGain = new Tone.Gain(0.02).connect(limiter); // Adjusted for soothing
+      amethystAmbientPad.connect(padReverb);
+      amethystAmbientPad.connect(padGain);
+
+      // Render crystal buttons in a circle
+      const panel = document.getElementById('texture-orb-panel');
+      console.log('Panel found:', panel);
+      panel.innerHTML = '';
+      const cx = 210, cy = 160, R = 110;
+      
+      for(let i=0;i<amethystOrbCount;i++) {
+        const angle = (i/amethystOrbCount)*2*Math.PI - Math.PI/2;
+        const x = cx + R*Math.cos(angle) - 37;
+        const y = cy + R*Math.sin(angle) - 45;
+        
+        const btn = document.createElement('button');
+        btn.className = 'amethyst-crystal-btn';
+        btn.style.left = x+'px';
+        btn.style.top = y+'px';
+        btn.innerHTML = `
+          <div class="amethyst-crystal-shape" style="--crystal1:${amethystCrystals[i].c1};--crystal2:${amethystCrystals[i].c2};--crystal3:${amethystCrystals[i].c3};">
+            <div class="amethyst-crystal-shine"></div>
+          </div>
+          <div class='amethyst-crystal-label'>${amethystCrystalLabels[i]}</div>
+        `;
+        
+        btn.onclick = async () => {
+          // Start audio context on first interaction
+          if (Tone.context.state !== 'running') {
+            await Tone.start();
+          }
+          
+          startAmethystPad();
+          amethystOrbStates[i] = true;
+          amethystSynths[i].triggerAttackRelease(amethystNotes[i], '2n'); // Longer note duration
+          btn.style.transform = 'scale(1.08) rotate(-2deg)';
+          btn.style.filter = 'drop-shadow(0 0 32px #e8d5ffcc)';
+          
+          setTimeout(()=>{
+            amethystOrbStates[i] = false;
+            btn.style.transform = '';
+            btn.style.filter = 'drop-shadow(0 0 18px #cc88ff99)';
+          }, 400);
+        };
+        
+        panel.appendChild(btn);
+        console.log('Crystal button created:', i);
+      }
+      
+      // Stop All logic
+      document.getElementById('texture-stopall').onclick = async () => {
+        // Start audio context on first interaction
+        if (Tone.context.state !== 'running') {
+          await Tone.start();
+        }
+        
+        amethystOrbStates = Array(amethystOrbCount).fill(false);
+        if (amethystPadStarted) {
+          amethystAmbientPad.triggerRelease(['C4','E4','G4','B4']);
+          amethystPadStarted = false;
+        }
+        // Reset crystal visuals
+        const btns = panel.querySelectorAll('.amethyst-crystal-btn');
+        btns.forEach((btn, i) => {
+          btn.style.transform = '';
+          btn.style.filter = 'drop-shadow(0 0 18px #cc88ff99)';
+        });
+      };
+      
+      function startAmethystPad() {
+        if (!amethystPadStarted) {
+          amethystPadStarted = true;
+          amethystAmbientPad.triggerAttack(['C4','E4','G4','B4'], undefined, 0.3);
+        }
+      }
+      
+      return () => {
+        // Cleanup function
+        if (amethystPadStarted) {
+          amethystAmbientPad.triggerRelease(['C4','E4','G4','B4']);
+        }
+        amethystSynths.forEach(synth => {
+          if (synth) synth.dispose();
+        });
+        if (amethystAmbientPad) amethystAmbientPad.dispose();
+      };
+    }
+
+    // Computational Taste Synthesis for Taste Colors
+    function initFlavorSpectrum() {
+      const colorPicker = document.getElementById('color-picker');
+      const addColorBtn = document.getElementById('add-color-btn');
+      const colorMixDisplay = document.getElementById('color-mix-display');
+      const colorList = document.getElementById('color-list');
+      const tasteResultDisplay = document.getElementById('taste-result-display');
+      const tasteAnalysis = document.getElementById('taste-analysis');
+      
+      let inputColors = [];
+      let computedTaste = null;
+      let tasteSynth = null;
+      
+      // Rich taste mapping with frequency-based sound design
+      const colorTasteMapping = {
+        // Red spectrum - Sweet & Rich (Higher frequencies = brighter, sweeter tastes)
+        cotton_candy: { 
+          primary: 'cotton_candy', 
+          secondary: 'ultra_sweet',
+          intensity: 0.9, 
+          frequency: 880, // Very high = ultra sweet
+          description: 'Cotton Candy & Ultra Sweet',
+          complexity: 1,
+          attributes: ['ethereal', 'light', 'dreamy']
+        },
+        strawberry: { 
+          primary: 'strawberry', 
+          secondary: 'sweet',
+          intensity: 0.7, 
+          frequency: 660, // High = sweet & bright
+          description: 'Strawberry & Sweet',
+          complexity: 2,
+          attributes: ['fresh', 'bright', 'juicy']
+        },
+        cherry: { 
+          primary: 'cherry', 
+          secondary: 'rich',
+          intensity: 0.8, 
+          frequency: 495, // Medium-high = rich & satisfying
+          description: 'Cherry & Rich',
+          complexity: 2,
+          attributes: ['bold', 'satisfying', 'deep']
+        },
+        raspberry: { 
+          primary: 'raspberry', 
+          secondary: 'tart',
+          intensity: 0.9, 
+          frequency: 330, // Medium = tart & complex
+          description: 'Raspberry & Tart',
+          complexity: 3,
+          attributes: ['intense', 'sophisticated', 'layered']
+        },
+        pomegranate: { 
+          primary: 'pomegranate', 
+          secondary: 'intense',
+          intensity: 0.95, 
+          frequency: 220, // Low = deep & intense
+          description: 'Pomegranate & Intense',
+          complexity: 4,
+          attributes: ['deep', 'complex', 'sophisticated']
+        },
+        
+        // Orange spectrum - Warm & Tropical (Warm frequencies)
+        peach: { 
+          primary: 'peach', 
+          secondary: 'gentle',
+          intensity: 0.6, 
+          frequency: 550, // High = soft & gentle
+          description: 'Peach & Gentle',
+          complexity: 2,
+          attributes: ['soft', 'gentle', 'comforting']
+        },
+        apricot: { 
+          primary: 'apricot', 
+          secondary: 'warm',
+          intensity: 0.7, 
+          frequency: 440, // Medium-high = warm & aromatic
+          description: 'Apricot & Warm',
+          complexity: 2,
+          attributes: ['smooth', 'aromatic', 'nurturing']
+        },
+        mango: { 
+          primary: 'mango', 
+          secondary: 'tropical',
+          intensity: 0.8, 
+          frequency: 330, // Medium = tropical & vibrant
+          description: 'Mango & Tropical',
+          complexity: 3,
+          attributes: ['exotic', 'vibrant', 'energizing']
+        },
+        papaya: { 
+          primary: 'papaya', 
+          secondary: 'exotic',
+          intensity: 0.85, 
+          frequency: 275, // Medium-low = exotic & rich
+          description: 'Papaya & Exotic',
+          complexity: 3,
+          attributes: ['tropical', 'smooth', 'complex']
+        },
+        persimmon: { 
+          primary: 'persimmon', 
+          secondary: 'deep',
+          intensity: 0.9, 
+          frequency: 220, // Low = deep & complex
+          description: 'Persimmon & Deep',
+          complexity: 4,
+          attributes: ['rich', 'complex', 'sophisticated']
+        },
+        
+        // Yellow spectrum - Bright & Citrus (Bright frequencies)
+        lemon: { 
+          primary: 'lemon', 
+          secondary: 'citrus',
+          intensity: 0.7, 
+          frequency: 660, // High = bright & tangy
+          description: 'Lemon & Citrus',
+          complexity: 2,
+          attributes: ['bright', 'tangy', 'refreshing']
+        },
+        banana: { 
+          primary: 'banana', 
+          secondary: 'smooth',
+          intensity: 0.6, 
+          frequency: 440, // Medium-high = smooth & sweet
+          description: 'Banana & Smooth',
+          complexity: 2,
+          attributes: ['smooth', 'creamy', 'comforting']
+        },
+        pineapple: { 
+          primary: 'pineapple', 
+          secondary: 'tropical',
+          intensity: 0.8, 
+          frequency: 330, // Medium = tropical & tangy
+          description: 'Pineapple & Tropical',
+          complexity: 3,
+          attributes: ['exotic', 'tangy', 'energizing']
+        },
+        passion_fruit: { 
+          primary: 'passion_fruit', 
+          secondary: 'exotic',
+          intensity: 0.9, 
+          frequency: 275, // Medium-low = exotic & intense
+          description: 'Passion Fruit & Exotic',
+          complexity: 4,
+          attributes: ['intense', 'tropical', 'complex']
+        },
+        marmalade: { 
+          primary: 'marmalade', 
+          secondary: 'rich',
+          intensity: 0.85, 
+          frequency: 220, // Low = rich & complex
+          description: 'Marmalade & Rich',
+          complexity: 3,
+          attributes: ['rich', 'sweet', 'sophisticated']
+        },
+        
+        // Lime spectrum - Zesty & Sharp
+        lime: { 
+          primary: 'lime', 
+          secondary: 'zesty',
+          intensity: 0.8, 
+          frequency: 550, 
+          description: 'Lime & Zesty',
+          complexity: 2,
+          attributes: ['sharp', 'bright', 'piercing']
+        },
+        kiwi: { 
+          primary: 'kiwi', 
+          secondary: 'fresh',
+          intensity: 0.7, 
+          frequency: 495, 
+          description: 'Kiwi & Fresh',
+          complexity: 2,
+          attributes: ['tangy', 'bright', 'natural']
+        },
+        avocado: { 
+          primary: 'avocado', 
+          secondary: 'creamy',
+          intensity: 0.6, 
+          frequency: 275, 
+          description: 'Avocado & Creamy',
+          complexity: 2,
+          attributes: ['smooth', 'rich', 'nurturing']
+        },
+        
+        // Green spectrum - Natural & Fresh
+        mint: { 
+          primary: 'mint', 
+          secondary: 'cool',
+          intensity: 0.7, 
+          frequency: 495, 
+          description: 'Mint & Cool',
+          complexity: 2,
+          attributes: ['refreshing', 'clean', 'invigorating']
+        },
+        basil: { 
+          primary: 'basil', 
+          secondary: 'herbal',
+          intensity: 0.8, 
+          frequency: 330, 
+          description: 'Basil & Herbal',
+          complexity: 2,
+          attributes: ['aromatic', 'fresh', 'natural']
+        },
+        sage: { 
+          primary: 'sage', 
+          secondary: 'earthy',
+          intensity: 0.6, 
+          frequency: 275, 
+          description: 'Sage & Earthy',
+          complexity: 2,
+          attributes: ['natural', 'stable', 'grounding']
+        },
+        
+        // Cyan spectrum - Cool & Refreshing
+        cucumber: { 
+          primary: 'cucumber', 
+          secondary: 'fresh',
+          intensity: 0.5, 
+          frequency: 440, 
+          description: 'Cucumber & Fresh',
+          complexity: 2,
+          attributes: ['cooling', 'smooth', 'gentle']
+        },
+        celery: { 
+          primary: 'celery', 
+          secondary: 'crisp',
+          intensity: 0.7, 
+          frequency: 495, 
+          description: 'Celery & Crisp',
+          complexity: 2,
+          attributes: ['clean', 'refreshing', 'natural']
+        },
+        seaweed: { 
+          primary: 'seaweed', 
+          secondary: 'oceanic',
+          intensity: 0.8, 
+          frequency: 220, 
+          description: 'Seaweed & Oceanic',
+          complexity: 3,
+          attributes: ['salty', 'complex', 'sophisticated']
+        },
+        
+        // Blue spectrum - Cool & Refreshing
+        blueberry: { 
+          primary: 'blueberry', 
+          secondary: 'sweet',
+          intensity: 0.8, 
+          frequency: 330, 
+          description: 'Blueberry & Sweet',
+          complexity: 2,
+          attributes: ['smooth', 'rich', 'satisfying']
+        },
+        plum: { 
+          primary: 'plum', 
+          secondary: 'deep',
+          intensity: 0.9, 
+          frequency: 440, 
+          description: 'Plum & Deep',
+          complexity: 3,
+          attributes: ['intense', 'sophisticated', 'layered']
+        },
+        blackberry: { 
+          primary: 'blackberry', 
+          secondary: 'rich',
+          intensity: 0.9, 
+          frequency: 220, 
+          description: 'Blackberry & Rich',
+          complexity: 3,
+          attributes: ['deep', 'complex', 'satisfying']
+        },
+        
+        // Purple spectrum - Sophisticated & Complex
+        lavender: { 
+          primary: 'lavender', 
+          secondary: 'floral',
+          intensity: 0.7, 
+          frequency: 440, 
+          description: 'Lavender & Floral',
+          complexity: 3,
+          attributes: ['delicate', 'elegant', 'refined']
+        },
+        grape: { 
+          primary: 'grape', 
+          secondary: 'sweet',
+          intensity: 0.8, 
+          frequency: 330, 
+          description: 'Grape & Sweet',
+          complexity: 2,
+          attributes: ['smooth', 'rich', 'satisfying']
+        },
+        fig: { 
+          primary: 'fig', 
+          secondary: 'deep',
+          intensity: 0.9, 
+          frequency: 275, 
+          description: 'Fig & Deep',
+          complexity: 3,
+          attributes: ['intense', 'sophisticated', 'layered']
+        },
+        
+        // Neutral spectrum - Balanced & Pure
+        vanilla: { 
+          primary: 'vanilla', 
+          secondary: 'sweet',
+          intensity: 0.3, 
+          frequency: 660, 
+          description: 'Vanilla & Sweet',
+          complexity: 1,
+          attributes: ['simple', 'smooth', 'comforting']
+        },
+        cream: { 
+          primary: 'cream', 
+          secondary: 'smooth',
+          intensity: 0.4, 
+          frequency: 440, 
+          description: 'Cream & Smooth',
+          complexity: 2,
+          attributes: ['gentle', 'harmonious', 'stable']
+        },
+        caramel: { 
+          primary: 'caramel', 
+          secondary: 'rich',
+          intensity: 0.9, 
+          frequency: 165, 
+          description: 'Caramel & Rich',
+          complexity: 3,
+          attributes: ['sweet', 'smooth', 'indulgent']
+        },
+        coffee: { 
+          primary: 'coffee', 
+          secondary: 'bold',
+          intensity: 0.9, 
+          frequency: 220, 
+          description: 'Coffee & Bold',
+          complexity: 3,
+          attributes: ['intense', 'aromatic', 'sophisticated']
+        },
+        chocolate: { 
+          primary: 'chocolate', 
+          secondary: 'rich',
+          intensity: 0.9, 
+          frequency: 275, 
+          description: 'Chocolate & Rich',
+          complexity: 3,
+          attributes: ['deep', 'smooth', 'indulgent']
+        },
+        mixed: { 
+          primary: 'fusion', 
+          secondary: 'complex',
+          intensity: 0.6, 
+          frequency: 440, 
+          description: 'Fusion & Complex',
+          complexity: 4,
+          attributes: ['multifaceted', 'dynamic', 'sophisticated']
+        }
+      };
+      
+      // Convert RGB to specific taste names based on color science
+      function hexToColorName(hex) {
+        const r = parseInt(hex.slice(1, 3), 16);
+        const g = parseInt(hex.slice(3, 5), 16);
+        const b = parseInt(hex.slice(5, 7), 16);
+        
+        console.log(`Analyzing color ${hex}: R=${r}, G=${g}, B=${b}`);
+        
+        // Calculate HSL for better color analysis
+        const max = Math.max(r, g, b);
+        const min = Math.min(r, g, b);
+        const l = (max + min) / 2;
+        const s = max === min ? 0 : (max - min) / (max + min);
+        
+        let h = 0;
+        if (max !== min) {
+          if (max === r) h = ((g - b) / (max - min)) % 6;
+          else if (max === g) h = (b - r) / (max - min) + 2;
+          else h = (r - g) / (max - min) + 4;
+          h *= 60;
+          if (h < 0) h += 360;
+        }
+        
+        // RGB to taste mapping based on color psychology and synesthesia research
+        // Red spectrum (0-30, 330-360 degrees) - Sweet & Rich
+        if (h >= 0 && h <= 30 || h >= 330) {
+          if (l > 0.8) return 'cotton_candy'; // Very light red - ultra sweet
+          if (l > 0.7) return 'strawberry'; // Light red - sweet & fresh
+          if (l > 0.5) return 'cherry'; // Medium red - sweet & rich
+          if (l > 0.3) return 'raspberry'; // Dark red - tart & complex
+          return 'pomegranate'; // Very dark red - intense & sophisticated
+        }
+        
+        // Orange spectrum (30-60 degrees) - Warm & Tropical
+        if (h >= 30 && h <= 60) {
+          if (l > 0.8) return 'peach'; // Very light orange - soft & gentle
+          if (l > 0.7) return 'apricot'; // Light orange - smooth & aromatic
+          if (l > 0.5) return 'mango'; // Medium orange - tropical & vibrant
+          if (l > 0.3) return 'papaya'; // Dark orange - exotic & rich
+          return 'persimmon'; // Very dark orange - deep & complex
+        }
+        
+        // Yellow spectrum (60-90 degrees) - Bright & Citrus
+        if (h >= 60 && h <= 90) {
+          if (l > 0.8) return 'lemon'; // Very light yellow - bright & tangy
+          if (l > 0.7) return 'banana'; // Light yellow - smooth & sweet
+          if (l > 0.5) return 'pineapple'; // Medium yellow - tropical & tangy
+          if (l > 0.3) return 'passion_fruit'; // Dark yellow - exotic & intense
+          return 'marmalade'; // Very dark yellow - rich & complex
+        }
+        
+        // Lime spectrum (90-120 degrees) - Sharp & Fresh
+        if (h >= 90 && h <= 120) {
+          if (l > 0.8) return 'lime'; // Very light lime - sharp & bright
+          if (l > 0.7) return 'kiwi'; // Light lime - tangy & fresh
+          if (l > 0.5) return 'guava'; // Medium lime - tropical & sweet
+          if (l > 0.3) return 'avocado'; // Dark lime - creamy & rich
+          return 'olive'; // Very dark lime - earthy & complex
+        }
+        
+        // Green spectrum (120-180 degrees) - Natural & Fresh
+        if (h >= 120 && h <= 180) {
+          if (l > 0.8) return 'mint'; // Very light green - refreshing & clean
+          if (l > 0.7) return 'basil'; // Light green - aromatic & fresh
+          if (l > 0.5) return 'sage'; // Medium green - earthy & herbal
+          if (l > 0.3) return 'rosemary'; // Dark green - intense & aromatic
+          return 'thyme'; // Very dark green - complex & sophisticated
+        }
+        
+        // Cyan spectrum (180-240 degrees) - Cool & Crisp
+        if (h >= 180 && h <= 240) {
+          if (l > 0.8) return 'cucumber'; // Very light cyan - cooling & fresh
+          if (l > 0.7) return 'celery'; // Light cyan - crisp & clean
+          if (l > 0.5) return 'seaweed'; // Medium cyan - oceanic & salty
+          if (l > 0.3) return 'wasabi'; // Dark cyan - intense & sharp
+          return 'sea_salt'; // Very dark cyan - pure & intense
+        }
+        
+        // Blue spectrum (240-300 degrees) - Deep & Rich
+        if (h >= 240 && h <= 300) {
+          if (l > 0.8) return 'blueberry'; // Very light blue - sweet & smooth
+          if (l > 0.7) return 'plum'; // Light blue - rich & satisfying
+          if (l > 0.5) return 'blackberry'; // Medium blue - deep & complex
+          if (l > 0.3) return 'elderberry'; // Dark blue - intense & sophisticated
+          return 'mulberry'; // Very dark blue - complex & layered
+        }
+        
+        // Purple spectrum (300-330 degrees) - Sophisticated & Floral
+        if (h >= 300 && h <= 330) {
+          if (l > 0.8) return 'lavender'; // Very light purple - delicate & floral
+          if (l > 0.7) return 'grape'; // Light purple - smooth & sweet
+          if (l > 0.5) return 'fig'; // Medium purple - deep & sophisticated
+          if (l > 0.3) return 'black_currant'; // Dark purple - intense & complex
+          return 'acai'; // Very dark purple - exotic & layered
+        }
+        
+        // Neutral colors (low saturation) - Smooth & Comforting
+        if (s < 0.1) {
+          if (l > 0.9) return 'vanilla'; // Very light - simple & smooth
+          if (l > 0.8) return 'cream'; // Light - gentle & harmonious
+          if (l > 0.6) return 'caramel'; // Medium light - sweet & smooth
+          if (l > 0.4) return 'honey'; // Medium - rich & golden
+          if (l > 0.2) return 'coffee'; // Dark - intense & aromatic
+          return 'chocolate'; // Very dark - deep & indulgent
+        }
+        
+        console.log(`Color ${hex} classified as mixed taste`);
+        return 'mixed';
+      }
+      
+      // Add color to mix
+      function addColor() {
+        const color = colorPicker.value;
+        if (inputColors.length < 8) { // Limit to 8 colors
+          inputColors.push(color);
+          updateColorMix();
+          updateColorList();
+        }
+      }
+      
+      // Update color mix display
+      function updateColorMix() {
+        if (inputColors.length === 0) {
+          colorMixDisplay.style.background = 'linear-gradient(45deg, #f0f0f0, #e0e0e0)';
+          colorMixDisplay.innerHTML = 'Add colors';
+          return;
+        }
+        
+        // Create gradient from input colors
+        const gradient = inputColors.length === 1 ? inputColors[0] : 
+          `conic-gradient(${inputColors.map((color, i) => `${color} ${i * (360 / inputColors.length)}deg, ${color} ${(i + 1) * (360 / inputColors.length)}deg`).join(', ')})`;
+        
+        colorMixDisplay.style.background = gradient;
+        colorMixDisplay.innerHTML = '';
+      }
+      
+      // Update color list display
+      function updateColorList() {
+        colorList.innerHTML = '';
+        inputColors.forEach((color, index) => {
+          const colorDot = document.createElement('div');
+          colorDot.style.width = '20px';
+          colorDot.style.height = '20px';
+          colorDot.style.borderRadius = '50%';
+          colorDot.style.backgroundColor = color;
+          colorDot.style.border = '2px solid #fff';
+          colorDot.style.boxShadow = '0 2px 8px rgba(0,0,0,0.2)';
+          colorDot.style.cursor = 'pointer';
+          colorDot.title = `Remove ${color}`;
+          
+          colorDot.addEventListener('click', () => {
+            inputColors.splice(index, 1);
+            updateColorMix();
+            updateColorList();
+          });
+          
+          colorList.appendChild(colorDot);
+        });
+      }
+      
+      // Compute taste from colors
+      function computeTaste() {
+        console.log('Computing taste for colors:', inputColors);
+        
+        if (inputColors.length === 0) {
+          tasteAnalysis.textContent = 'Please add some colors first!';
+          return;
+        }
+        
+        // Analyze each color
+        const colorAnalyses = inputColors.map(color => {
+          const colorName = hexToColorName(color);
+          console.log(`Color ${color} classified as: ${colorName}`);
+          return colorTasteMapping[colorName] || colorTasteMapping.mixed;
+        });
+        
+        console.log('Color analyses:', colorAnalyses);
+        
+        // Compute overall taste profile
+        const tasteProfile = computeTasteProfile(colorAnalyses);
+        console.log('Computed taste profile:', tasteProfile);
+        computedTaste = tasteProfile;
+        
+        // Update display
+        updateTasteResult(tasteProfile);
+      }
+      
+      // Compute taste profile from color analyses with complex layering
+      function computeTasteProfile(colorAnalyses) {
+        // Calculate primary and secondary taste frequencies
+        const primaryCounts = {};
+        const secondaryCounts = {};
+        const allAttributes = [];
+        
+        colorAnalyses.forEach(analysis => {
+          primaryCounts[analysis.primary] = (primaryCounts[analysis.primary] || 0) + 1;
+          secondaryCounts[analysis.secondary] = (secondaryCounts[analysis.secondary] || 0) + 1;
+          allAttributes.push(...analysis.attributes);
+        });
+        
+        // Find dominant primary and secondary tastes
+        const dominantPrimary = Object.keys(primaryCounts).reduce((a, b) => 
+          primaryCounts[a] > primaryCounts[b] ? a : b);
+        const dominantSecondary = Object.keys(secondaryCounts).reduce((a, b) => 
+          secondaryCounts[a] > secondaryCounts[b] ? a : b);
+        
+        // Calculate average intensity and frequency
+        const avgIntensity = colorAnalyses.reduce((sum, analysis) => sum + analysis.intensity, 0) / colorAnalyses.length;
+        const avgFrequency = colorAnalyses.reduce((sum, analysis) => sum + analysis.frequency, 0) / colorAnalyses.length;
+        
+        // Calculate total complexity
+        const totalComplexity = colorAnalyses.reduce((sum, analysis) => sum + analysis.complexity, 0);
+        
+        // Get unique attributes and select the most relevant ones
+        const uniqueAttributes = [...new Set(allAttributes)];
+        const selectedAttributes = uniqueAttributes.slice(0, 3);
+        
+        // Generate complex description
+        let finalDescription = '';
+        if (colorAnalyses.length === 1) {
+          finalDescription = colorAnalyses[0].description;
+        } else if (colorAnalyses.length === 2) {
+          finalDescription = `${colorAnalyses[0].description} + ${colorAnalyses[1].description}`;
+        } else {
+          // Create a sophisticated layered description with actual taste names
+          const primaryDesc = dominantPrimary.charAt(0).toUpperCase() + dominantPrimary.slice(1);
+          const secondaryDesc = dominantSecondary.charAt(0).toUpperCase() + dominantSecondary.slice(1);
+          finalDescription = `${primaryDesc} & ${secondaryDesc} Blend`;
+        }
+        
+        // Determine complexity level
+        let complexityLevel = 'Simple';
+        if (totalComplexity >= 8) complexityLevel = 'Ultra Complex';
+        else if (totalComplexity >= 6) complexityLevel = 'Very Complex';
+        else if (totalComplexity >= 4) complexityLevel = 'Complex';
+        else if (totalComplexity >= 2) complexityLevel = 'Balanced';
+        
+        // Determine intensity level
+        let intensityLevel = 'Subtle';
+        if (avgIntensity >= 0.8) intensityLevel = 'Intense';
+        else if (avgIntensity >= 0.6) intensityLevel = 'Moderate';
+        else if (avgIntensity >= 0.4) intensityLevel = 'Gentle';
+        
+        return {
+          primary: dominantPrimary,
+          secondary: dominantSecondary,
+          intensity: avgIntensity,
+          frequency: avgFrequency,
+          description: finalDescription,
+          complexity: totalComplexity,
+          complexityLevel: complexityLevel,
+          intensityLevel: intensityLevel,
+          attributes: selectedAttributes
+        };
+      }
+      
+      // Update taste result display with complex analysis
+      function updateTasteResult(tasteProfile) {
+        // Update taste result display with all colors
+        let gradientColors = '';
+        if (inputColors.length === 1) {
+          gradientColors = inputColors[0];
+        } else if (inputColors.length === 2) {
+          gradientColors = `${inputColors[0]}, ${inputColors[1]}`;
+        } else {
+          // Create a conic gradient with all colors
+          gradientColors = inputColors.join(', ');
+        }
+        tasteResultDisplay.style.background = `conic-gradient(${gradientColors})`;
+        tasteResultDisplay.innerHTML = `${tasteProfile.primary.charAt(0).toUpperCase() + tasteProfile.primary.slice(1)}<br>+<br>${tasteProfile.secondary.charAt(0).toUpperCase() + tasteProfile.secondary.slice(1)}`;
+        
+        // Update analysis text with complex attributes and all individual tastes
+        const attributesText = tasteProfile.attributes.join(' • ');
+        
+        // Show all individual tastes that went into the computation
+        const individualTastes = inputColors.map((color, index) => {
+          const colorName = hexToColorName(color);
+          const taste = colorTasteMapping[colorName];
+          return `${taste.primary} (${color})`;
+        }).join(' + ');
+        
+        tasteAnalysis.innerHTML = `
+          <strong>${tasteProfile.description}</strong><br>
+          <em>${tasteProfile.complexityLevel} • ${tasteProfile.intensityLevel} • ${Math.round(tasteProfile.frequency)}Hz</em><br><br>
+          <strong>Combined from:</strong> ${individualTastes}<br>
+          <strong>Primary:</strong> ${tasteProfile.primary.charAt(0).toUpperCase() + tasteProfile.primary.slice(1)}<br>
+          <strong>Secondary:</strong> ${tasteProfile.secondary.charAt(0).toUpperCase() + tasteProfile.secondary.slice(1)}<br>
+          <strong>Attributes:</strong> ${attributesText}<br><br>
+          Your color combination creates a ${tasteProfile.primary} taste profile with ${tasteProfile.intensityLevel.toLowerCase()} intensity and ${tasteProfile.attributes.length} distinct characteristics.
+        `;
+      }
+      
+      // Play computed taste
+      function playComputedTaste() {
+        if (!computedTaste) {
+          tasteAnalysis.textContent = 'Please compute a taste first!';
+          return;
+        }
+        
+        // Create synth for computed taste
+        const synth = new Tone.Synth({
+          oscillator: { type: 'sine' },
+          envelope: { attack: 0.2, decay: 0.3, sustain: 0.4, release: 1.0 }
+        }).toDestination();
+        
+        // Play the computed frequency
+        synth.triggerAttackRelease(computedTaste.frequency, '2n');
+        
+        // Cleanup
+        setTimeout(() => {
+          synth.dispose();
+        }, 2000);
+      }
+      
+      // Clear all
+      function clearAll() {
+        inputColors = [];
+        computedTaste = null;
+        updateColorMix();
+        updateColorList();
+        tasteResultDisplay.style.background = 'linear-gradient(45deg, #f0f0f0, #e0e0e0)';
+        tasteResultDisplay.innerHTML = 'Compute taste';
+        tasteAnalysis.textContent = 'Add colors and click "Compute Taste" to analyze your color combination';
+      }
+      
+      // Event listeners
+      addColorBtn.addEventListener('click', addColor);
+      document.getElementById('taste-compute').addEventListener('click', computeTaste);
+      document.getElementById('taste-play').addEventListener('click', playComputedTaste);
+      document.getElementById('taste-clear').addEventListener('click', clearAll);
+      
+      return () => {
+        // Cleanup function
+        if (tasteSynth) {
+          tasteSynth.dispose();
+        }
+      };
+    }
   </script>
 
 </body>
